@@ -1,0 +1,146 @@
+name: Deploy to Solana Testnet
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  SOLANA_VERSION: '1.18.17'
+  ANCHOR_VERSION: '0.30.1'
+  RUST_VERSION: 'stable'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          override: true
+          profile: minimal
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install Solana CLI
+        run: |
+          sh -c "$(curl -sSfL https://release.solana.com/v${{ env.SOLANA_VERSION }}/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+          
+      - name: Verify Solana Installation
+        run: |
+          solana --version
+          solana-keygen --version
+          cargo --version
+          rustc --version
+
+      - name: Install Anchor CLI
+        run: |
+          cargo install --git https://github.com/coral-xyz/anchor --tag v${{ env.ANCHOR_VERSION }} anchor-cli --locked --force
+          
+      - name: Verify Anchor Installation
+        run: anchor --version
+
+      - name: Configure Solana for Testnet
+        run: |
+          solana config set --url https://api.testnet.solana.com
+          solana config get
+
+      - name: Setup Deploy Keypair
+        env:
+          DEPLOY_KEYPAIR: ${{ secrets.SOLANA_DEPLOY_KEYPAIR }}
+        run: |
+          echo "$DEPLOY_KEYPAIR" > deploy-keypair.json
+          solana address -k deploy-keypair.json
+          solana balance -k deploy-keypair.json || echo "Keypair balance: 0 SOL (needs airdrop)"
+
+      - name: Request Airdrop (if needed)
+        run: |
+          BALANCE=$(solana balance -k deploy-keypair.json | awk '{print $1}')
+          if (( $(echo "$BALANCE < 2" | bc -l) )); then
+            echo "Balance low ($BALANCE SOL), requesting airdrop..."
+            solana airdrop 2 -k deploy-keypair.json || echo "Airdrop may have failed, continuing..."
+            sleep 5
+            solana balance -k deploy-keypair.json
+          else
+            echo "Balance sufficient: $BALANCE SOL"
+          fi
+
+      - name: Build Anchor Program
+        run: |
+          anchor build
+          
+      - name: Run Tests
+        run: |
+          anchor test --skip-local-validator
+
+      - name: Deploy to Testnet
+        run: |
+          anchor deploy --provider.cluster testnet --provider.wallet deploy-keypair.json
+          
+      - name: Capture Program ID
+        id: program_id
+        run: |
+          PROGRAM_ID=$(solana address -k target/deploy/vault-keypair.json)
+          echo "PROGRAM_ID=$PROGRAM_ID" >> $GITHUB_OUTPUT
+          echo "✅ Deployed Program ID: $PROGRAM_ID"
+          
+      - name: Update Deployment Info
+        run: |
+          cat > DEPLOYMENT-INFO.md << EOF
+          # Deployment Information
+          
+          **Date:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Network:** Testnet
+          **Program ID:** ${{ steps.program_id.outputs.PROGRAM_ID }}
+          **Deployer:** GitHub Actions CI
+          **Workflow Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
+          ## Verification
+          
+          \`\`\`bash
+          solana program show ${{ steps.program_id.outputs.PROGRAM_ID }} --url testnet
+          \`\`\`
+          
+          ## Update Anchor.toml
+          
+          Update the \`[programs.testnet]\` section with:
+          \`\`\`toml
+          [programs.testnet]
+          vault = "${{ steps.program_id.outputs.PROGRAM_ID }}"
+          \`\`\`
+          EOF
+          cat DEPLOYMENT-INFO.md
+          
+      - name: Commit Deployment Info
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add DEPLOYMENT-INFO.md
+          git commit -m "🚀 Deployed to testnet: ${{ steps.program_id.outputs.PROGRAM_ID }}" || echo "No changes to commit"
+          git push || echo "Push failed or no changes"
+
+      - name: Cleanup Keypair
+        if: always()
+        run: rm -f deploy-keypair.json
+
+      - name: Summary
+        run: |
+          echo "🎉 Deployment Complete!"
+          echo "Program ID: ${{ steps.program_id.outputs.PROGRAM_ID }}"
+          echo "Network: Testnet"
+          echo "Explorer: https://explorer.solana.com/address/${{ steps.program_id.outputs.PROGRAM_ID }}?cluster=testnet"
