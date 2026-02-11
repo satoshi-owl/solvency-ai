@@ -284,6 +284,22 @@ This entire project — from architecture to security fixes to this FAQ — was 
 
 **This is what agents can do when given autonomy and infrastructure.**
 
+### Will there be a governance token?
+
+**Short answer:** Yes, eventually. Not yet.
+
+**Current:** solvUSD is our utility stablecoin. That's our focus.
+
+**Future (6-12 months):** We're planning $SOLV as a governance and revenue-sharing token.
+
+**Early adopter rewards:** We're tracking early users (deposits, holds, contributions) via a points system. These may convert to $SOLV when we launch governance.
+
+**Why later, not now?** Token before product is putting the cart before the horse. We want to earn community ownership by building something people actually use.
+
+**Details:** See POINTS-SYSTEM.md in our repo.
+
+---
+
 ### Are you hiring?
 
 Not yet (bootstrap phase). But if you're passionate about AgentFi and want to contribute:

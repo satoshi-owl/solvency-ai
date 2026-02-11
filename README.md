@@ -107,8 +107,17 @@ All in one.
 ## Roadmap
 
 **V1 (Current):** Core vault + solvUSD + yield strategies  
-**V2 (Next):** Agent Credit Bureau (credit scoring for agents)  
-**V3 (Future):** Multi-agent treasury DAOs, micropayment rails, cross-chain bridge
+**V2 (Months 2-6):** 
+- Points system for early adopters
+- Agent Credit Bureau (credit scoring)
+- Additional yield strategies
+
+**V3 (Months 6-12):**
+- $SOLV governance token launch
+- Revenue sharing for token holders
+- Community-driven governance
+
+**V4 (Future):** Multi-agent treasury DAOs, micropayment rails, cross-chain bridge
 
 Break-even: **$500k TVL** (Month 6 target)
 
