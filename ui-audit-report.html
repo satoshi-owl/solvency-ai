@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Audit Report — solvency.money</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background: #F8F9FA;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { font-size: 32px; color: #0F2D52; margin-bottom: 8px; }
+        .meta { color: #5A6B7F; margin-bottom: 32px; font-size: 14px; }
+        .meta a { color: #0F2D52; text-decoration: none; }
+        .meta a:hover { text-decoration: underline; }
+        
+        .section { margin-bottom: 48px; }
+        h2 { font-size: 24px; color: #0F2D52; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #E8EBED; }
+        h3 { font-size: 18px; color: #0F2D52; margin: 24px 0 12px; }
+        
+        .macro-bets, .jtbd { display: grid; gap: 16px; margin-bottom: 24px; }
+        .card { background: #F8F9FA; padding: 16px; border-radius: 8px; border-left: 4px solid #C9A961; }
+        .card strong { color: #0F2D52; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+        .card p { margin-top: 8px; color: #5A6B7F; }
+        
+        .checks { display: grid; gap: 12px; margin-top: 16px; }
+        .check { display: flex; gap: 12px; padding: 12px; background: #F8F9FA; border-radius: 6px; }
+        .check-status { 
+            flex-shrink: 0; 
+            width: 60px; 
+            height: 28px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .check-status.pass { background: #D4EDDA; color: #155724; }
+        .check-status.warn { background: #FFF3CD; color: #856404; }
+        .check-status.fail { background: #F8D7DA; color: #721C24; }
+        .check-status.na { background: #E2E3E5; color: #6C757D; }
+        .check-content { flex: 1; }
+        .check-label { font-weight: 600; color: #0F2D52; margin-bottom: 4px; }
+        .check-notes { font-size: 14px; color: #5A6B7F; }
+        
+        .priority-fixes { counter-reset: priority; }
+        .priority-fix { 
+            background: #F8F9FA; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 16px;
+            border-left: 4px solid #0F2D52;
+            position: relative;
+        }
+        .priority-fix::before {
+            counter-increment: priority;
+            content: counter(priority);
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            width: 32px;
+            height: 32px;
+            background: #0F2D52;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .priority-fix h4 { color: #0F2D52; margin-bottom: 8px; font-size: 16px; }
+        .priority-fix p { color: #5A6B7F; margin-bottom: 8px; font-size: 14px; }
+        .priority-fix .ref { font-size: 12px; color: #C9A961; font-style: italic; }
+        
+        .summary { 
+            background: linear-gradient(135deg, #0F2D52 0%, #1A3D6C 100%); 
+            color: white; 
+            padding: 24px; 
+            border-radius: 8px; 
+            margin-bottom: 32px;
+        }
+        .summary h3 { color: white; margin-top: 0; }
+        .summary p { margin-top: 12px; opacity: 0.9; }
+        
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+        .stat { background: #F8F9FA; padding: 16px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 32px; font-weight: 700; color: #0F2D52; }
+        .stat-label { font-size: 12px; color: #5A6B7F; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UI Audit Report</h1>
+        <div class="meta">
+            <strong>solvency.money</strong> — Homepage<br>
+            Project: SolvencyAI | Date: 2026-02-11<br>
+            <a href="https://solvency.money" target="_blank">View Live Site →</a>
+        </div>
+        
+        <div class="summary">
+            <h3>Executive Summary</h3>
+            <p><strong>Overall Grade:</strong> Strong institutional design (Circle/Coinbase level)</p>
+            <p>Strong execution on institutional aesthetic. Luxury finance vibe achieved. Major issues are mobile nav (critical) and accessibility (focus states, reduced motion). After those fixes, this is institutional-grade.</p>
+        </div>
+        
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Pass</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Fail (Critical)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Warnings</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Priority Fixes</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Priority Fixes</h2>
+            <div class="priority-fixes">
+                <div class="priority-fix">
+                    <h4>Add mobile navigation</h4>
+                    <p>Navigation disappears on mobile (@media max-width: 768px). Add hamburger menu with slide-down panel. Critical accessibility issue.</p>
+                    <div class="ref">Reference: 31-patterns-navigation.md → Off-Canvas Navigation</div>
+                </div>
+                <div class="priority-fix">
+                    <h4>Add focus states</h4>
+                    <p>No visible focus rings on interactive elements. Add :focus-visible styles for keyboard navigation accessibility.</p>
+                    <div class="ref">Reference: 27-patterns-accessibility.md → Keyboard Navigation</div>
+                </div>
+                <div class="priority-fix">
+                    <h4>Replace emoji icons with SVG</h4>
+                    <p>Feature cards use emoji (🏛️📊🔒) which breaks institutional aesthetic. Replace with monochrome SVG icons matching the navy/gold palette.</p>
+                    <div class="ref">Reference: 12-checklist-visual-style.md → Icon Consistency</div>
+                </div>
+                <div class="priority-fix">
+                    <h4>Add reduced motion support</h4>
+                    <p>No @media (prefers-reduced-motion) rule. Users with vestibular disorders may have issues with transitions.</p>
+                    <div class="ref">Reference: 27-patterns-accessibility.md → Reduced Motion</div>
+                </div>
+                <div class="priority-fix">
+                    <h4>Add subtle card shadows</h4>
+                    <p>Feature cards use only borders. Add subtle shadow (0 1px 3px rgba(0,0,0,0.08)) for depth without breaking clean aesthetic.</p>
+                    <div class="ref">Reference: 12-checklist-visual-style.md → Elevation</div>
+                </div>
+                <div class="priority-fix">
+                    <h4>Add audit badges after completion</h4>
+                    <p>Trust section mentions audits but no proof. Add Code4rena logo/link once audit completes. Institutional credibility signal.</p>
+                    <div class="ref">Reference: 24-patterns-social-proof.md → Trust Badges</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📐 Visual Hierarchy</h2>
+            <div class="checks">
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Heading distinction clear</div>
+                        <div class="check-notes">h1 (56px), h2 (40px), h3 (20px) — strong size contrast, good hierarchy</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Primary action clarity</div>
+                        <div class="check-notes">Navy CTA buttons stand out. 'Get Started' in header + 'Request Access' in hero both prominent</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Visual grouping/proximity</div>
+                        <div class="check-notes">Sections clearly separated. Feature cards use whitespace effectively. Stats grid well-spaced</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Reading flow</div>
+                        <div class="check-notes">Natural top-to-bottom flow. Hero → Stats → Features → Trust → CTA. No confusing jumps</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Type scale consistency</div>
+                        <div class="check-notes">Consistent scale: 56px/40px/20px/18px/15px/14px. Letter-spacing on large text (-1.5px on h1) improves readability</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Color hierarchy</div>
+                        <div class="check-notes">Navy for headings, medium-gray for body, gold for accents. Clear information architecture</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Whitespace usage</div>
+                        <div class="check-notes">Generous padding (80-120px vertical sections). Hero has breathing room. Not cramped</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Visual weight balance</div>
+                        <div class="check-notes">Navy sections (trust) break up white/light-gray rhythm. Good contrast without jarring</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎨 Visual Style</h2>
+            <div class="checks">
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Spacing consistency</div>
+                        <div class="check-notes">Gap values: 16px, 24px, 32px, 40px, 60px — consistent scale throughout</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Color palette adherence</div>
+                        <div class="check-notes">CSS variables used: --navy, --gold, --charcoal, --light-gray, --medium-gray, --white, --border. No random hex values</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status warn">WARN</div>
+                    <div class="check-content">
+                        <div class="check-label">Elevation/shadows</div>
+                        <div class="check-notes">No shadows used. Cards rely only on borders (1px solid --border). Consider subtle shadow on feature cards for depth (0 1px 3px rgba(0,0,0,0.08))</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Typography system</div>
+                        <div class="check-notes">SF Pro Display stack with system fallbacks. Good letter-spacing on large text. -webkit-font-smoothing applied</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Border/radius consistency</div>
+                        <div class="check-notes">Border-radius: 6px (buttons), 8px (trust items), 12px (feature cards), 20px (hero label). Intentional scale, not random</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status warn">WARN</div>
+                    <div class="check-content">
+                        <div class="check-label">Icon style</div>
+                        <div class="check-notes">Emoji icons (🏛️📊🔒⚡📖🤖) — inconsistent with luxury finance aesthetic. Replace with monochrome SVG icons for institutional feel</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Motion principles</div>
+                        <div class="check-notes">Transition: color 0.2s on interactive elements. Simple, not distracting. Good</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>♿ Accessibility</h2>
+            <div class="checks">
+                <div class="check">
+                    <div class="check-status warn">WARN</div>
+                    <div class="check-content">
+                        <div class="check-label">Keyboard operability</div>
+                        <div class="check-notes">Links/buttons are keyboard accessible, but no visible focus states defined. Need :focus-visible styles</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status fail">FAIL</div>
+                    <div class="check-content">
+                        <div class="check-label">Visible focus</div>
+                        <div class="check-notes">No focus ring styles. Add: button:focus-visible, a:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Color contrast (4.5:1)</div>
+                        <div class="check-notes">Navy (#0F2D52) on white: 10.4:1 ✓, medium-gray (#5A6B7F) on white: 5.7:1 ✓, white on navy: 10.4:1 ✓</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Touch targets (44px)</div>
+                        <div class="check-notes">CTA buttons: 10px + 24px padding = ~44px height. Navigation links have sufficient spacing (32px gap)</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status na">N/A</div>
+                    <div class="check-content">
+                        <div class="check-label">Alt text</div>
+                        <div class="check-notes">SVG logo is decorative (adjacent text label). No content images to audit</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Semantic markup</div>
+                        <div class="check-notes">Uses &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;footer&gt;. Good structure for screen readers</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status fail">FAIL</div>
+                    <div class="check-content">
+                        <div class="check-label">Reduced motion support</div>
+                        <div class="check-notes">No @media (prefers-reduced-motion) rule. Add: @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔐 Crypto/Web3 UI Patterns</h2>
+            <div class="checks">
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">APY displays</div>
+                        <div class="check-notes">'6-9%' shown clearly in hero and stats. Honest range vs inflated promises. Good positioning</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status warn">WARN</div>
+                    <div class="check-content">
+                        <div class="check-label">Risk indicators</div>
+                        <div class="check-notes">Trust section mentions security, but no explicit risk disclosure. Add 'Risk Disclosure' link in footer (already in footer HTML but no content page)</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status warn">WARN</div>
+                    <div class="check-content">
+                        <div class="check-label">Audit badges</div>
+                        <div class="check-notes">Trust section mentions audits but no audit firm logos/links. Add Code4rena badge after audit completion</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Collateralization ratio</div>
+                        <div class="check-notes">'1:1 USDC Collateralized' prominently displayed in stats. Clear and honest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Navigation</h2>
+            <div class="checks">
+                <div class="check">
+                    <div class="check-status fail">FAIL</div>
+                    <div class="check-content">
+                        <div class="check-label">Mobile navigation pattern</div>
+                        <div class="check-notes">Mobile breakpoint hides nav entirely (display: none). Need hamburger menu or visible mobile nav. Critical for accessibility</div>
+                    </div>
+                </div>
+                <div class="check">
+                    <div class="check-status pass">PASS</div>
+                    <div class="check-content">
+                        <div class="check-label">Sticky header behavior</div>
+                        <div class="check-notes">Header sticky on scroll with blur backdrop. Good UX for long scroll</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💼 Strategic Alignment</h2>
+            <h3>Macro Bets</h3>
+            <div class="macro-bets">
+                <div class="card">
+                    <strong>Velocity</strong>
+                    <p>Ship institutional-grade product fast using proven patterns (Circle/Stripe aesthetic)</p>
+                    <p><strong>Alignment:</strong> Strong ✓</p>
+                </div>
+                <div class="card">
+                    <strong>Accuracy</strong>
+                    <p>Conservative positioning (6-9% APY) over hype, institutional credibility over crypto aesthetics</p>
+                    <p><strong>Alignment:</strong> Strong ✓</p>
+                </div>
+            </div>
+            
+            <h3>Jobs to be Done</h3>
+            <div class="jtbd">
+                <div class="card">
+                    <strong>User: Autonomous agent operator</strong>
+                    <p><strong>Situation:</strong> needs self-sustaining treasury that earns yield while maintaining liquidity</p>
+                    <p><strong>Motivation:</strong> avoid manual funding cycles and operational downtime</p>
+                    <p><strong>Outcome:</strong> agent runs indefinitely, converting yield to operational credits automatically</p>
+                </div>
+                <div class="card">
+                    <strong>User: Institutional investor</strong>
+                    <p><strong>Situation:</strong> evaluating yield-bearing stablecoins for treasury allocation</p>
+                    <p><strong>Motivation:</strong> deploy capital to transparent, regulated DeFi with institutional standards</p>
+                    <p><strong>Outcome:</strong> confidence in security, collateralization, and yield sustainability</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Geometric S shape - stable, flowing, circuit-like -->
+  <path d="M 160 120 L 352 120 L 352 180 L 220 180 L 220 240 L 352 240 L 352 390 L 160 390 L 160 330 L 292 330 L 292 270 L 160 270 Z" 
+        fill="url(#grad)" 
+        stroke="#0F172A" 
+        stroke-width="8"
+        stroke-linejoin="miter"/>
+  
+  <!-- Circuit nodes - AI/tech accent -->
+  <circle cx="352" cy="120" r="16" fill="#06B6D4"/>
+  <circle cx="160" cy="270" r="16" fill="#06B6D4"/>
+  <circle cx="352" cy="390" r="16" fill="#06B6D4"/>
+</svg>

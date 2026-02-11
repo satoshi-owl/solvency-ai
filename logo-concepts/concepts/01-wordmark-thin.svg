@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 200; letter-spacing: 0.05em; }
+    </style>
+  </defs>
+  <text x="200" y="65" class="logo-text" font-size="42" text-anchor="middle" fill="#000">solvUSD</text>
+</svg>

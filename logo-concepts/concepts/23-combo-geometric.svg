@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" width="500" height="100">
+  <!-- Geometric mark + type -->
+  <rect x="20" y="20" width="60" height="60" stroke="#000" stroke-width="3" fill="none"/>
+  <rect x="42" y="42" width="16" height="16" fill="#000"/>
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 500; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+  <text x="105" y="62" class="logo-text" font-size="38" text-anchor="start" fill="#000">solvUSD</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" width="500" height="100">
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 300; letter-spacing: 0.05em; }
+      .ai-accent { font-weight: 500; }
+    </style>
+  </defs>
+  <text x="250" y="60" class="logo-text" font-size="42" text-anchor="middle" fill="#000">
+    <tspan>Solvency</tspan><tspan class="ai-accent">AI</tspan>
+  </text>
+</svg>

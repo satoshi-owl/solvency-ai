@@ -1,0 +1,11 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield/Vault Symbol -->
+  <path d="M20 8L12 11V20C12 26.5 15.5 32.5 20 35C24.5 32.5 28 26.5 28 20V11L20 8Z" fill="#0F2D52"/>
+  <path d="M20 14L16 15.5V20C16 23.5 17.5 27 20 28.5C22.5 27 24 23.5 24 20V15.5L20 14Z" fill="#C9A961"/>
+  
+  <!-- solvUSD text -->
+  <text x="36" y="28" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif" font-size="24" font-weight="600" fill="#0F2D52" letter-spacing="-0.5">solv</text>
+  <text x="36" y="28" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif" font-size="24" font-weight="300" fill="#5A6B7F" letter-spacing="-0.5">
+    <tspan x="92" y="28">USD</tspan>
+  </text>
+</svg>

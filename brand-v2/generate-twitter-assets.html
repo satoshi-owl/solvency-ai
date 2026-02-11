@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Twitter Assets</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0F172A;
+      color: white;
+      padding: 40px;
+    }
+    .download-btn {
+      background: #8B5CF6;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: 12px 0;
+      display: inline-block;
+    }
+    canvas {
+      border: 2px solid #8B5CF6;
+      margin: 20px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Solvency AI - Twitter Assets Generator</h1>
+  
+  <h2>Profile Picture (400x400)</h2>
+  <canvas id="profileCanvas" width="400" height="400"></canvas>
+  <button class="download-btn" onclick="downloadCanvas('profileCanvas', 'solvency-profile-400x400.png')">Download Profile Pic</button>
+  
+  <h2>Banner (1500x500)</h2>
+  <canvas id="bannerCanvas" width="1500" height="500"></canvas>
+  <button class="download-btn" onclick="downloadCanvas('bannerCanvas', 'solvency-banner-1500x500.png')">Download Banner</button>
+  
+  <script>
+    // Draw Profile Picture
+    function drawProfile() {
+      const canvas = document.getElementById('profileCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Background
+      const gradient = ctx.createRadialGradient(200, 200, 50, 200, 200, 300);
+      gradient.addColorStop(0, '#1E293B');
+      gradient.addColorStop(1, '#0F172A');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 400, 400);
+      
+      // Create purple to gold gradient for logo
+      const logoGradient = ctx.createLinearGradient(0, 0, 400, 400);
+      logoGradient.addColorStop(0, '#8B5CF6');
+      logoGradient.addColorStop(0.5, '#A78BFA');
+      logoGradient.addColorStop(1, '#FCD34D');
+      
+      // Left eye circle
+      ctx.strokeStyle = logoGradient;
+      ctx.lineWidth = 16;
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath();
+      ctx.arc(150, 200, 60, 0, 2 * Math.PI);
+      ctx.stroke();
+      
+      // Right eye circle
+      ctx.beginPath();
+      ctx.arc(250, 200, 60, 0, 2 * Math.PI);
+      ctx.stroke();
+      
+      // Left pupil
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#FCD34D';
+      ctx.beginPath();
+      ctx.arc(150, 200, 20, 0, 2 * Math.PI);
+      ctx.fill();
+      
+      // Right pupil
+      ctx.beginPath();
+      ctx.arc(250, 200, 20, 0, 2 * Math.PI);
+      ctx.fill();
+      
+      // Inner pupils
+      ctx.fillStyle = '#8B5CF6';
+      ctx.beginPath();
+      ctx.arc(150, 200, 10, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(250, 200, 10, 0, 2 * Math.PI);
+      ctx.fill();
+      
+      // Add glow effect
+      ctx.globalAlpha = 0.3;
+      ctx.shadowBlur = 30;
+      ctx.shadowColor = '#8B5CF6';
+      ctx.strokeStyle = '#8B5CF6';
+      ctx.lineWidth = 20;
+      ctx.beginPath();
+      ctx.arc(150, 200, 60, 0, 2 * Math.PI);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(250, 200, 60, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+    
+    // Draw Banner
+    function drawBanner() {
+      const canvas = document.getElementById('bannerCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Background gradient
+      const bgGradient = ctx.createLinearGradient(0, 0, 1500, 500);
+      bgGradient.addColorStop(0, '#0F172A');
+      bgGradient.addColorStop(0.5, '#1E293B');
+      bgGradient.addColorStop(1, '#0F172A');
+      ctx.fillStyle = bgGradient;
+      ctx.fillRect(0, 0, 1500, 500);
+      
+      // Add subtle noise/texture
+      ctx.globalAlpha = 0.05;
+      for (let i = 0; i < 5000; i++) {
+        ctx.fillStyle = Math.random() > 0.5 ? '#FCD34D' : '#8B5CF6';
+        ctx.fillRect(Math.random() * 1500, Math.random() * 500, 2, 2);
+      }
+      ctx.globalAlpha = 1;
+      
+      // Draw logo on the right (subtle, low opacity)
+      ctx.globalAlpha = 0.15;
+      const logoSize = 350;
+      const logoX = 1150;
+      const logoY = 250;
+      
+      // Logo gradient
+      const logoGradient = ctx.createLinearGradient(logoX - logoSize/2, 0, logoX + logoSize/2, 500);
+      logoGradient.addColorStop(0, '#8B5CF6');
+      logoGradient.addColorStop(0.5, '#A78BFA');
+      logoGradient.addColorStop(1, '#FCD34D');
+      
+      ctx.strokeStyle = logoGradient;
+      ctx.lineWidth = 20;
+      ctx.beginPath();
+      ctx.arc(logoX - 70, logoY, 80, 0, 2 * Math.PI);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(logoX + 70, logoY, 80, 0, 2 * Math.PI);
+      ctx.stroke();
+      
+      // Reset alpha for text
+      ctx.globalAlpha = 1;
+      
+      // Main text - "Solvency AI"
+      ctx.font = '900 90px Inter, sans-serif';
+      const textGradient = ctx.createLinearGradient(50, 0, 600, 0);
+      textGradient.addColorStop(0, '#8B5CF6');
+      textGradient.addColorStop(0.5, '#A78BFA');
+      textGradient.addColorStop(1, '#FCD34D');
+      ctx.fillStyle = textGradient;
+      ctx.fillText('Solvency AI', 50, 180);
+      
+      // Tagline
+      ctx.font = '600 36px Inter, sans-serif';
+      ctx.fillStyle = '#94A3B8';
+      ctx.fillText('Yield-bearing stablecoin for self-funding AI agents', 50, 240);
+      
+      // Stats
+      ctx.font = '700 48px JetBrains Mono, monospace';
+      ctx.fillStyle = '#FCD34D';
+      ctx.fillText('8-10% APY', 50, 320);
+      
+      ctx.fillStyle = '#A78BFA';
+      ctx.fillText('•', 280, 320);
+      
+      ctx.fillStyle = '#FCD34D';
+      ctx.fillText('Solana', 330, 320);
+      
+      ctx.fillStyle = '#A78BFA';
+      ctx.fillText('•', 520, 320);
+      
+      ctx.fillStyle = '#FCD34D';
+      ctx.fillText('Autonomous', 570, 320);
+      
+      // Subtitle
+      ctx.font = '500 28px Inter, sans-serif';
+      ctx.fillStyle = '#94A3B8';
+      ctx.fillText('Your bots shouldn\'t need your credit card to stay alive', 50, 380);
+      
+      // Small logo in bottom left
+      ctx.globalAlpha = 0.6;
+      ctx.strokeStyle = logoGradient;
+      ctx.lineWidth = 8;
+      ctx.beginPath();
+      ctx.arc(70, 440, 25, 0, 2 * Math.PI);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(120, 440, 25, 0, 2 * Math.PI);
+      ctx.stroke();
+      
+      // Pupils for small logo
+      ctx.fillStyle = '#FCD34D';
+      ctx.beginPath();
+      ctx.arc(70, 440, 8, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(120, 440, 8, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+    
+    function downloadCanvas(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    
+    // Draw on load
+    drawProfile();
+    drawBanner();
+  </script>
+</body>
+</html>

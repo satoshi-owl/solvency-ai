@@ -1,0 +1,297 @@
+{
+  "title": "solvency.money — Homepage UI Audit",
+  "project": "SolvencyAI",
+  "date": "2026-02-11",
+  "url": "https://solvency.money",
+  "screenshot_url": "https://solvency.money",
+  
+  "macro_bets": [
+    {
+      "category": "velocity",
+      "description": "Ship institutional-grade product fast using proven patterns (Circle/Stripe aesthetic)",
+      "alignment": "strong"
+    },
+    {
+      "category": "accuracy",
+      "description": "Conservative positioning (6-9% APY) over hype, institutional credibility over crypto aesthetics",
+      "alignment": "strong"
+    }
+  ],
+  
+  "jtbd": [
+    {
+      "user": "Autonomous agent operator",
+      "situation": "needs self-sustaining treasury that earns yield while maintaining liquidity",
+      "motivation": "avoid manual funding cycles and operational downtime",
+      "outcome": "agent runs indefinitely, converting yield to operational credits automatically"
+    },
+    {
+      "user": "Institutional investor",
+      "situation": "evaluating yield-bearing stablecoins for treasury allocation",
+      "motivation": "deploy capital to transparent, regulated DeFi with institutional standards",
+      "outcome": "confidence in security, collateralization, and yield sustainability"
+    }
+  ],
+  
+  "visual_hierarchy": {
+    "title": "Visual Hierarchy",
+    "checks": [
+      {
+        "label": "Heading distinction clear",
+        "status": "pass",
+        "notes": "h1 (56px), h2 (40px), h3 (20px) — strong size contrast, good hierarchy"
+      },
+      {
+        "label": "Primary action clarity",
+        "status": "pass",
+        "notes": "Navy CTA buttons stand out. 'Get Started' in header + 'Request Access' in hero both prominent"
+      },
+      {
+        "label": "Visual grouping/proximity",
+        "status": "pass",
+        "notes": "Sections clearly separated. Feature cards use whitespace effectively. Stats grid well-spaced"
+      },
+      {
+        "label": "Reading flow",
+        "status": "pass",
+        "notes": "Natural top-to-bottom flow. Hero → Stats → Features → Trust → CTA. No confusing jumps"
+      },
+      {
+        "label": "Type scale consistency",
+        "status": "pass",
+        "notes": "Consistent scale: 56px/40px/20px/18px/15px/14px. Letter-spacing on large text (-1.5px on h1) improves readability"
+      },
+      {
+        "label": "Color hierarchy",
+        "status": "pass",
+        "notes": "Navy for headings, medium-gray for body, gold for accents. Clear information architecture"
+      },
+      {
+        "label": "Whitespace usage",
+        "status": "pass",
+        "notes": "Generous padding (80-120px vertical sections). Hero has breathing room. Not cramped"
+      },
+      {
+        "label": "Visual weight balance",
+        "status": "pass",
+        "notes": "Navy sections (trust) break up white/light-gray rhythm. Good contrast without jarring"
+      }
+    ]
+  },
+  
+  "visual_style": {
+    "title": "Visual Style",
+    "checks": [
+      {
+        "label": "Spacing consistency",
+        "status": "pass",
+        "notes": "Gap values: 16px, 24px, 32px, 40px, 60px — consistent scale throughout"
+      },
+      {
+        "label": "Color palette adherence",
+        "status": "pass",
+        "notes": "CSS variables used: --navy, --gold, --charcoal, --light-gray, --medium-gray, --white, --border. No random hex values"
+      },
+      {
+        "label": "Elevation/shadows",
+        "status": "warn",
+        "notes": "No shadows used. Cards rely only on borders (1px solid --border). Consider subtle shadow on feature cards for depth (0 1px 3px rgba(0,0,0,0.08))"
+      },
+      {
+        "label": "Typography system",
+        "status": "pass",
+        "notes": "SF Pro Display stack with system fallbacks. Good letter-spacing on large text. -webkit-font-smoothing applied"
+      },
+      {
+        "label": "Border/radius consistency",
+        "status": "pass",
+        "notes": "Border-radius: 6px (buttons), 8px (trust items), 12px (feature cards), 20px (hero label). Intentional scale, not random"
+      },
+      {
+        "label": "Icon style",
+        "status": "warn",
+        "notes": "Emoji icons (🏛️📊🔒⚡📖🤖) — inconsistent with luxury finance aesthetic. Replace with monochrome SVG icons for institutional feel"
+      },
+      {
+        "label": "Motion principles",
+        "status": "pass",
+        "notes": "Transition: color 0.2s on interactive elements. Simple, not distracting. Good"
+      }
+    ]
+  },
+  
+  "accessibility": {
+    "title": "Accessibility",
+    "checks": [
+      {
+        "label": "Keyboard operability",
+        "status": "warn",
+        "notes": "Links/buttons are keyboard accessible, but no visible focus states defined. Need :focus-visible styles"
+      },
+      {
+        "label": "Visible focus",
+        "status": "fail",
+        "notes": "No focus ring styles. Add: button:focus-visible, a:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }"
+      },
+      {
+        "label": "Color contrast (4.5:1)",
+        "status": "pass",
+        "notes": "Navy (#0F2D52) on white: 10.4:1 ✓, medium-gray (#5A6B7F) on white: 5.7:1 ✓, white on navy: 10.4:1 ✓"
+      },
+      {
+        "label": "Touch targets (44px)",
+        "status": "pass",
+        "notes": "CTA buttons: 10px + 24px padding = ~44px height. Navigation links have sufficient spacing (32px gap)"
+      },
+      {
+        "label": "Alt text",
+        "status": "na",
+        "notes": "SVG logo is decorative (adjacent text label). No content images to audit"
+      },
+      {
+        "label": "Semantic markup",
+        "status": "pass",
+        "notes": "Uses <header>, <nav>, <section>, <footer>. Good structure for screen readers"
+      },
+      {
+        "label": "Reduced motion support",
+        "status": "fail",
+        "notes": "No @media (prefers-reduced-motion) rule. Add: @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }"
+      }
+    ]
+  },
+  
+  "crypto_web3_ui": {
+    "title": "Crypto/Web3 UI Patterns",
+    "checks": [
+      {
+        "label": "Wallet connection clarity",
+        "status": "na",
+        "notes": "Marketing site, no wallet integration yet. Will need prominent 'Connect Wallet' on app launch"
+      },
+      {
+        "label": "Network indicator",
+        "status": "na",
+        "notes": "No network switcher needed on marketing site. App will need Solana network badge"
+      },
+      {
+        "label": "APY displays",
+        "status": "pass",
+        "notes": "'6-9%' shown clearly in hero and stats. Honest range vs inflated promises. Good positioning"
+      },
+      {
+        "label": "Risk indicators",
+        "status": "warn",
+        "notes": "Trust section mentions security, but no explicit risk disclosure. Add 'Risk Disclosure' link in footer (already in footer HTML but no content page)"
+      },
+      {
+        "label": "TVL/liquidity display",
+        "status": "na",
+        "notes": "Stats show '24/7 Liquidity' but no actual TVL number (pre-launch). Replace with real TVL post-mainnet"
+      },
+      {
+        "label": "Audit badges",
+        "status": "warn",
+        "notes": "Trust section mentions audits but no audit firm logos/links. Add Code4rena badge after audit completion"
+      },
+      {
+        "label": "Collateralization ratio",
+        "status": "pass",
+        "notes": "'1:1 USDC Collateralized' prominently displayed in stats. Clear and honest"
+      }
+    ]
+  },
+  
+  "usability": {
+    "title": "Usability",
+    "checks": [
+      {
+        "label": "Feature discoverability",
+        "status": "pass",
+        "notes": "6 feature cards clearly visible. Icons + titles make scanning easy"
+      },
+      {
+        "label": "Feedback on actions",
+        "status": "pass",
+        "notes": "Hover states on buttons (background color change). Simple but effective"
+      },
+      {
+        "label": "Error prevention",
+        "status": "na",
+        "notes": "No forms yet (just email links). Will need validation on app"
+      },
+      {
+        "label": "Cognitive load management",
+        "status": "pass",
+        "notes": "Information chunked well. Stats, features, trust all digestible. Not overwhelming"
+      },
+      {
+        "label": "Loading states",
+        "status": "na",
+        "notes": "Static site, no dynamic content loading yet"
+      }
+    ]
+  },
+  
+  "navigation": {
+    "title": "Navigation",
+    "checks": [
+      {
+        "label": "Clear current location",
+        "status": "na",
+        "notes": "Single-page site with anchor links. No need for active states yet"
+      },
+      {
+        "label": "Mobile navigation pattern",
+        "status": "fail",
+        "notes": "Mobile breakpoint hides nav entirely (display: none). Need hamburger menu or visible mobile nav. Critical for accessibility"
+      },
+      {
+        "label": "Sticky header behavior",
+        "status": "pass",
+        "notes": "Header sticky on scroll with blur backdrop. Good UX for long scroll"
+      }
+    ]
+  },
+  
+  "priority_fixes": [
+    {
+      "rank": 1,
+      "title": "Add mobile navigation",
+      "description": "Navigation disappears on mobile (@media max-width: 768px). Add hamburger menu with slide-down panel. Critical accessibility issue.",
+      "framework_reference": "31-patterns-navigation.md → Off-Canvas Navigation"
+    },
+    {
+      "rank": 2,
+      "title": "Add focus states",
+      "description": "No visible focus rings on interactive elements. Add :focus-visible styles for keyboard navigation accessibility.",
+      "framework_reference": "27-patterns-accessibility.md → Keyboard Navigation"
+    },
+    {
+      "rank": 3,
+      "title": "Replace emoji icons with SVG",
+      "description": "Feature cards use emoji (🏛️📊🔒) which breaks institutional aesthetic. Replace with monochrome SVG icons matching the navy/gold palette.",
+      "framework_reference": "12-checklist-visual-style.md → Icon Consistency"
+    },
+    {
+      "rank": 4,
+      "title": "Add reduced motion support",
+      "description": "No @media (prefers-reduced-motion) rule. Users with vestibular disorders may have issues with transitions.",
+      "framework_reference": "27-patterns-accessibility.md → Reduced Motion"
+    },
+    {
+      "rank": 5,
+      "title": "Add subtle card shadows",
+      "description": "Feature cards use only borders. Add subtle shadow (0 1px 3px rgba(0,0,0,0.08)) for depth without breaking clean aesthetic.",
+      "framework_reference": "12-checklist-visual-style.md → Elevation"
+    },
+    {
+      "rank": 6,
+      "title": "Add audit badges after completion",
+      "description": "Trust section mentions audits but no proof. Add Code4rena logo/link once audit completes. Institutional credibility signal.",
+      "framework_reference": "24-patterns-social-proof.md → Trust Badges"
+    }
+  ],
+  
+  "notes": "Overall: Strong execution on institutional aesthetic. Luxury finance vibe achieved (Circle/Coinbase level). Major issues are mobile nav (critical) and accessibility (focus states, reduced motion). After those fixes, this is institutional-grade. The crypto UI patterns are appropriate for a marketing site — wallet integration deferred to app is correct."
+}

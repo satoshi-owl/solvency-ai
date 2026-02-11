@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Angular geometric S -->
+  <path d="M70 20 L30 20 L30 45 L70 45 L70 80 L30 80" 
+        stroke="#000" stroke-width="6" fill="none" stroke-linecap="square"/>
+</svg>

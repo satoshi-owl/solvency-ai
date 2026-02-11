@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Architectural S (strong, built to last) -->
+  <path d="M75 20 L25 20 L25 46 L75 46 L75 80 L25 80" 
+        stroke="#000" stroke-width="6" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+  <circle cx="75" cy="20" r="3" fill="#000"/>
+  <circle cx="75" cy="80" r="3" fill="#000"/>
+</svg>

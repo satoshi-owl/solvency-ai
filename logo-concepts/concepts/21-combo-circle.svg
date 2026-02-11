@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" width="500" height="100">
+  <!-- Circle + wordmark -->
+  <circle cx="50" cy="50" r="30" stroke="#000" stroke-width="3" fill="none"/>
+  <circle cx="50" cy="50" r="8" fill="#000"/>
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 300; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+  <text x="110" y="62" class="logo-text" font-size="42" text-anchor="start" fill="#000">solvUSD</text>
+</svg>

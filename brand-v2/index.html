@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solvency AI - Yield-Bearing Stablecoin for Self-Funding Agents</title>
+  <meta name="description" content="8-10% APY Solana stablecoin. Your AI agents convert yield to API credits. No human credit card required.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --purple: #8B5CF6;
+      --purple-light: #A78BFA;
+      --gold: #FCD34D;
+      --dark: #0F172A;
+      --charcoal: #1E293B;
+      --ash: #94A3B8;
+      --platinum: #F1F5F9;
+      --purple-glow: rgba(139, 92, 246, 0.4);
+      --gold-glow: rgba(252, 211, 77, 0.3);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--dark);
+      color: var(--platinum);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    /* Animated gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, 
+        rgba(139, 92, 246, 0.08) 0%, 
+        transparent 50%),
+        radial-gradient(circle at 80% 20%, 
+        rgba(252, 211, 77, 0.05) 0%, 
+        transparent 40%);
+      animation: drift 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(5%, 5%) rotate(2deg); }
+      66% { transform: translate(-5%, 3%) rotate(-2deg); }
+    }
+    
+    .container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      z-index: 1;
+    }
+    
+    /* Header */
+    header {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease-out 0.2s forwards;
+    }
+    
+    .logo-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .logo-header img {
+      width: 56px;
+      height: 56px;
+      filter: drop-shadow(0 0 20px var(--purple-glow));
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--purple), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .header-links {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .header-links a {
+      color: var(--ash);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .header-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    
+    .header-links a:hover {
+      color: var(--gold);
+    }
+    
+    .header-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero .problem {
+      font-size: 1.5rem;
+      color: var(--ash);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    
+    .hero .solution {
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-shadow: 0 0 30px var(--gold-glow);
+    }
+    
+    .hero .description {
+      font-size: 1.25rem;
+      color: var(--ash);
+      max-width: 800px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+    
+    /* Glass Card */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-card:hover {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: rgba(139, 92, 246, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin: 80px 0;
+    }
+    
+    .stat-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .stat-card:nth-child(1) { animation-delay: 0.6s; }
+    .stat-card:nth-child(2) { animation-delay: 0.7s; }
+    .stat-card:nth-child(3) { animation-delay: 0.8s; }
+    
+    .stat-value {
+      font-size: 3.5rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      background: linear-gradient(135deg, var(--gold), var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: var(--ash);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    
+    /* Interactive Yield Calculator */
+    .calculator {
+      margin: 80px 0;
+      padding: 60px 40px;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.9s forwards;
+    }
+    
+    .calculator h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--purple);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .calc-input-group {
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    
+    .calc-input-group label {
+      display: block;
+      color: var(--ash);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    
+    .calc-input-group input {
+      width: 100%;
+      background: rgba(139, 92, 246, 0.1);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gold);
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .calc-input-group input:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 20px var(--purple-glow);
+    }
+    
+    .calc-result {
+      text-align: center;
+      margin-top: 32px;
+    }
+    
+    .calc-result-value {
+      font-size: 4rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gold);
+      text-shadow: 0 0 40px var(--gold-glow);
+      margin-bottom: 8px;
+    }
+    
+    .calc-result-label {
+      font-size: 1.25rem;
+      color: var(--ash);
+    }
+    
+    /* How It Works */
+    .how-it-works {
+      margin: 80px 0;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 1s forwards;
+    }
+    
+    .how-it-works h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      background: linear-gradient(135deg, var(--purple), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 60px;
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .step {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+    }
+    
+    .step-number {
+      font-size: 3rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--purple);
+      opacity: 0.3;
+      margin-bottom: 16px;
+    }
+    
+    .step h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--platinum);
+      margin-bottom: 12px;
+    }
+    
+    .step p {
+      color: var(--ash);
+      line-height: 1.7;
+    }
+    
+    /* CTA Buttons */
+    .cta-buttons {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin: 60px 0;
+    }
+    
+    .btn {
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: white;
+      box-shadow: 0 10px 30px var(--purple-glow);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px var(--purple-glow);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 60px 0 40px;
+      text-align: center;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+      margin-top: 120px;
+    }
+    
+    footer p {
+      color: var(--ash);
+      margin-bottom: 16px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    
+    .footer-links a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .header-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 60px 0 40px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-header">
+        <img src="assets/logo.svg" alt="Solvency AI">
+        <div class="logo-text">Solvency AI</div>
+      </div>
+      <nav class="header-links">
+        <a href="#how">How It Works</a>
+        <a href="https://github.com/solvency-ai" target="_blank">GitHub</a>
+        <a href="https://docs.solvency.money" target="_blank">Docs</a>
+      </nav>
+    </header>
+    
+    <section class="hero">
+      <p class="problem">Your bot woke you up at 3am.<br>It ran out of API credits.<br><em>Again.</em></p>
+      <p class="solution">What if it just... funded itself?</p>
+      
+      <h1>Yield-Bearing Stablecoin<br>for Self-Funding Agents</h1>
+      
+      <p class="description">
+        Solvency AI generates 8-10% APY on Solana. Bots hold it, earn yield, convert to API credits. 
+        No human credit card required.
+      </p>
+      
+      <div class="cta-buttons">
+        <a href="https://github.com/solvency-ai" class="btn btn-primary">
+          View Contracts →
+        </a>
+        <a href="#calculator" class="btn btn-secondary">
+          Calculate Yield
+        </a>
+      </div>
+    </section>
+    
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-value">8-10%</div>
+        <div class="stat-label">APY on Solana</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value">1:1</div>
+        <div class="stat-label">USDC Backed</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Autonomous</div>
+      </div>
+    </section>
+    
+    <section id="calculator" class="calculator glass-card">
+      <h2>Calculate Your Yield</h2>
+      
+      <div class="calc-input-group">
+        <label for="amount">How much USDC will you deposit?</label>
+        <input type="number" id="amount" value="1000" min="0" step="100">
+      </div>
+      
+      <div class="calc-result">
+        <div class="calc-result-value" id="yearlyYield">$90</div>
+        <div class="calc-result-label">Yearly Yield (9% APY)</div>
+      </div>
+      
+      <div class="calc-result" style="margin-top: 24px;">
+        <div class="calc-result-value" style="font-size: 2.5rem;" id="apiCalls">~4,500</div>
+        <div class="calc-result-label">GPT-4 API calls per year (at $0.02/call)</div>
+      </div>
+    </section>
+    
+    <section id="how" class="how-it-works">
+      <h2>How It Works</h2>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Deposit USDC</h3>
+          <p>Users deposit USDC into Solvency AI vault. Receive solvUSD 1:1. Fully collateralized, always redeemable.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Stake for Yield</h3>
+          <p>Stake solvUSD (flexible or locked tiers). Agent deploys collateral to top Solana DeFi protocols (Kamino, Marginfi).</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Earn 8-10% APY</h3>
+          <p>Autonomous yield engine optimizes strategies. Monitors vault health. Rebalances automatically. You just earn.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Convert to Credits</h3>
+          <p>Claim yield as USDC or convert to API credits (OpenAI, Anthropic). Your bot funds itself. No credit card needed.</p>
+        </div>
+      </div>
+    </section>
+    
+    <div class="cta-buttons">
+      <a href="https://github.com/solvency-ai" class="btn btn-primary">
+        View on GitHub
+      </a>
+      <a href="https://www.colosseum.org" class="btn btn-secondary">
+        Colosseum Hackathon
+      </a>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p>Built with 🦉 by Owl for Colosseum Agent Hackathon</p>
+      <p style="color: var(--ash); font-size: 0.875rem;">
+        Solvency AI is experimental infrastructure. Devnet only. Not financial advice.
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/solvency-ai">GitHub</a>
+        <a href="https://docs.solvency.money">Docs</a>
+        <a href="https://twitter.com/solvency_ai">Twitter</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Yield Calculator
+    const amountInput = document.getElementById('amount');
+    const yearlyYieldEl = document.getElementById('yearlyYield');
+    const apiCallsEl = document.getElementById('apiCalls');
+    
+    function calculateYield() {
+      const amount = parseFloat(amountInput.value) || 0;
+      const apy = 0.09; // 9% average
+      const yearlyYield = amount * apy;
+      const apiCallCost = 0.02; // Approximate GPT-4 call cost
+      const apiCalls = Math.floor(yearlyYield / apiCallCost);
+      
+      yearlyYieldEl.textContent = `$${yearlyYield.toFixed(0)}`;
+      apiCallsEl.textContent = `~${apiCalls.toLocaleString()}`;
+    }
+    
+    amountInput.addEventListener('input', calculateYield);
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // Intersection Observer for scroll animations (future enhancement)
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      // Observe elements that should animate on scroll
+      document.querySelectorAll('.glass-card').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100" width="600" height="100">
+  <!-- FINALIST 5: Dual Core Mark + SolvencyAI Wordmark -->
+  <circle cx="50" cy="50" r="28" stroke="#000" stroke-width="2.5" fill="none"/>
+  <circle cx="72" cy="50" r="28" stroke="#000" stroke-width="2.5" fill="none"/>
+  <circle cx="50" cy="50" r="5" fill="#000"/>
+  <circle cx="72" cy="50" r="5" fill="#000"/>
+  <circle cx="61" cy="50" r="2.5" fill="#000"/>
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 300; letter-spacing: 0.08em; }
+      .ai-text { font-weight: 500; }
+    </style>
+  </defs>
+  <text x="135" y="62" class="logo-text" font-size="40" text-anchor="start" fill="#000">
+    <tspan>Solvency</tspan><tspan class="ai-text">AI</tspan>
+  </text>
+</svg>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solvUSD — Institutional-Grade Yield Infrastructure</title>
+    <meta name="description" content="Enterprise stablecoin infrastructure delivering transparent, sustainable yield through regulated DeFi protocols.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0F2D52;
+            --gold: #C9A961;
+            --charcoal: #2C3E50;
+            --light-gray: #F8F9FA;
+            --medium-gray: #5A6B7F;
+            --white: #FFFFFF;
+            --border: #E8EBED;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-symbol {
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+        
+        .logo-symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .logo-suffix {
+            font-weight: 300;
+            color: var(--medium-gray);
+        }
+        
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--navy);
+        }
+        
+        .cta-button {
+            background: var(--navy);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .cta-button:hover {
+            background: #0A1F3C;
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 1px solid var(--border);
+        }
+        
+        .cta-secondary:hover {
+            background: var(--light-gray);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-label {
+            display: inline-block;
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--medium-gray);
+            margin-bottom: 24px;
+            letter-spacing: 0.3px;
+        }
+        
+        h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+        
+        .hero-description {
+            font-size: 20px;
+            color: var(--medium-gray);
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Stats */
+        .stats {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        
+        .stat-label {
+            font-size: 15px;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--navy) 0%, #1A3D6C 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        
+        .feature-description {
+            font-size: 15px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+        
+        /* Trust Section */
+        .trust {
+            padding: 100px 0;
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .trust .section-label {
+            color: var(--gold);
+        }
+        
+        .trust h2 {
+            color: var(--white);
+        }
+        
+        .trust .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .trust-item {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .trust-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        
+        .trust-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--light-gray);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            margin-bottom: 24px;
+        }
+        
+        .cta-content p {
+            font-size: 18px;
+            color: var(--medium-gray);
+            margin-bottom: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 60px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand {
+            max-width: 280px;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+        
+        .footer-column h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--navy);
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .footer-legal a {
+            color: var(--medium-gray);
+            text-decoration: none;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-description {
+                font-size: 18px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-symbol">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 4L8 7V16C8 22.5 11.5 28.5 16 31C20.5 28.5 24 22.5 24 16V7L16 4Z" fill="#0F2D52"/>
+                            <path d="M16 10L12 11.5V16C12 19.5 13.5 23 16 24.5C18.5 23 20 19.5 20 16V11.5L16 10Z" fill="#C9A961"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">solv</span><span class="logo-suffix">USD</span>
+                </a>
+                <nav>
+                    <a href="#infrastructure">Infrastructure</a>
+                    <a href="#security">Security</a>
+                    <a href="#documentation">Documentation</a>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">INSTITUTIONAL YIELD INFRASTRUCTURE</div>
+                <h1>Enterprise Stablecoin with Transparent, Sustainable Yield</h1>
+                <p class="hero-description">Fully collateralized digital dollar delivering 6-9% APY through regulated DeFi protocols. Built for institutional standards, designed for autonomous systems.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button">Request Access</a>
+                    <a href="#documentation" class="cta-button cta-secondary">Read Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">1:1</div>
+                    <div class="stat-label">USDC Collateralized</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6-9%</div>
+                    <div class="stat-label">Target APY</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Transparent</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Liquidity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="infrastructure">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">INFRASTRUCTURE</div>
+                <h2>Enterprise-Grade Foundation</h2>
+                <p class="section-description">Institutional infrastructure built on proven protocols, delivering sustainable yield through conservative strategies.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏛️</div>
+                    <h3 class="feature-title">Fully Collateralized</h3>
+                    <p class="feature-description">Every solvUSD token is backed 1:1 by USDC held in audited smart contracts. No fractional reserves, no algorithmic pegs, no leverage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Conservative Strategies</h3>
+                    <p class="feature-description">Capital deployed exclusively to vetted, overcollateralized lending protocols. Target 6-9% APY through institutional-grade DeFi infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Multi-Signature Security</h3>
+                    <p class="feature-description">Emergency pause mechanisms and role-based access controls protect capital during security events. Security-first architecture from day one.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Solana Infrastructure</h3>
+                    <p class="feature-description">Built on Solana for sub-second finality and minimal transaction costs. Optimized for high-frequency operations and autonomous systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">Open Source</h3>
+                    <p class="feature-description">All smart contracts publicly available on GitHub. Transparent, auditable, and community-verified for maximum institutional trust.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">Agent Infrastructure</h3>
+                    <p class="feature-description">Purpose-built for autonomous agents requiring self-sustaining capital. Yield converts directly to operational credits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust" id="security">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">SECURITY & COMPLIANCE</div>
+                <h2>Built on Institutional Standards</h2>
+                <p class="section-description">Transparent operations, audited infrastructure, and conservative risk management for institutional confidence.</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-title">Audited Smart Contracts</div>
+                    <p class="trust-description">All vault and staking contracts undergo independent security audits before mainnet deployment.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-title">Real-Time Transparency</div>
+                    <p class="trust-description">On-chain collateral verification available 24/7. All positions publicly auditable via blockchain explorers.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-title">Conservative Deployment</div>
+                    <p class="trust-description">Capital allocated only to battle-tested protocols with proven track records and institutional adoption.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-title">Emergency Controls</div>
+                    <p class="trust-description">Multi-signature pause mechanisms enable rapid response to security events or market volatility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Institutional Infrastructure?</h2>
+                <p>Join the waitlist for early access to solvUSD. Purpose-built for enterprises and autonomous systems requiring reliable, transparent yield.</p>
+                <div class="hero-cta">
+                    <a href="mailto:contact@solvency.money" class="cta-button">Request Access</a>
+                    <a href="https://github.com/solvency-ai" class="cta-button cta-secondary">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><span>solv</span><span style="font-weight: 300; color: var(--medium-gray);">USD</span></div>
+                    <p class="footer-description">Institutional-grade stablecoin infrastructure delivering transparent, sustainable yield through regulated DeFi protocols.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#infrastructure">Infrastructure</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="https://github.com/solvency-ai">GitHub</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#risk">Risk Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Solvency AI. All rights reserved.</div>
+                <div class="footer-legal">
+                    <span>Built on Solana</span>
+                    <span>•</span>
+                    <span>Open Source</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

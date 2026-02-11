@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <!-- Custom S with connected letterforms -->
+  <path d="M60 45 Q65 30 80 30 Q95 30 95 42 Q95 50 85 54 L70 60 Q60 64 60 72 Q60 82 75 82 Q85 82 90 75" 
+        stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M110 50 Q110 30 125 30 Q140 30 140 45 L140 82" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M155 82 L155 30" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M175 65 L205 30 M205 82 L175 45" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M220 50 Q220 30 235 30 L245 30 Q260 30 260 50 L260 62 Q260 82 245 82 L235 82 Q220 82 220 62 Z" 
+        stroke="#000" stroke-width="3" fill="none"/>
+  <path d="M275 50 Q275 30 290 30 L300 30 Q315 30 315 45 Q315 55 305 58 L290 64 Q280 68 280 75 Q280 82 295 82 L305 82 Q320 82 320 70" 
+        stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M335 82 L335 30 L350 30 Q365 30 365 45 Q365 60 350 60 L335 60" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

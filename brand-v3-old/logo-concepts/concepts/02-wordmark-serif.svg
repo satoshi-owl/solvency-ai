@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <style>
+      .logo-text { font-family: 'Times New Roman', serif; font-weight: 600; letter-spacing: 0.02em; }
+    </style>
+  </defs>
+  <text x="200" y="65" class="logo-text" font-size="48" text-anchor="middle" fill="#000">solvUSD</text>
+</svg>

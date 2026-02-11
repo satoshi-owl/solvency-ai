@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- S+U monogram -->
+  <path d="M70 25 Q60 15 45 15 Q25 15 25 32 Q25 45 40 50 Q55 55 60 62 Q65 70 60 78 Q55 85 45 85 Q30 85 25 75" 
+        stroke="#000" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M75 30 L75 70 Q75 85 60 85" stroke="#000" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+</svg>

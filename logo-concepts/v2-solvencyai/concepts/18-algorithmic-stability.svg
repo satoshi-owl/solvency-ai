@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Algorithm maintaining stability -->
+  <rect x="15" y="65" width="70" height="20" stroke="#000" stroke-width="2.5" fill="none"/>
+  <!-- Wave pattern above (algorithm) -->
+  <path d="M15 50 Q25 40 35 50 Q45 60 55 50 Q65 40 75 50 Q85 60 85 50" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M15 35 Q30 25 45 35 Q60 45 75 35 Q85 25 85 35" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

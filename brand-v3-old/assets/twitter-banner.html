@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Solvency AI - Twitter Banner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #0A1628;
+    }
+    
+    .banner {
+      width: 1500px;
+      height: 500px;
+      background: linear-gradient(135deg, #0A1628 0%, #1B2B44 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Subtle grid pattern for institutional feel */
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(74, 144, 226, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 144, 226, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+    
+    /* Subtle logo watermark (right side) */
+    .logo-watermark {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.08;
+      width: 400px;
+      height: 400px;
+    }
+    
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 100px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .title {
+      font-size: 72px;
+      font-weight: 700;
+      color: #E8EDF2;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+    
+    .ai {
+      color: #4A90E2;
+      font-weight: 400;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      color: #9BA8B8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 60px;
+    }
+    
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-value {
+      font-size: 56px;
+      font-weight: 700;
+      color: #4A90E2;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #9BA8B8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .accent {
+      color: #C9A959;
+    }
+    
+    /* Bottom tag */
+    .footer {
+      position: absolute;
+      bottom: 30px;
+      left: 100px;
+      font-size: 14px;
+      color: #9BA8B8;
+      opacity: 0.6;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Logo watermark -->
+    <div class="logo-watermark">
+      <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M 156 128
+          C 156 91.6 185.6 62 222 62
+          L 356 62
+          C 392.4 62 422 91.6 422 128
+          C 422 164.4 392.4 194 356 194
+          L 290 194
+          C 273.4 194 260 207.4 260 224
+          C 260 240.6 273.4 254 290 254
+          L 356 254
+          C 392.4 254 422 283.6 422 320
+          L 422 384
+          C 422 420.4 392.4 450 356 450
+          L 222 450
+          C 185.6 450 156 420.4 156 384
+          C 156 347.6 185.6 318 222 318
+          L 288 318
+          C 304.6 318 318 304.6 318 288
+          C 318 271.4 304.6 258 288 258
+          L 222 258
+          C 185.6 258 156 228.4 156 192
+          L 156 128
+        " stroke="#E8EDF2" stroke-width="48" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+      <div class="title">
+        SOLVENCY <span class="ai">AI</span>
+      </div>
+      
+      <div class="subtitle">
+        Yield-Bearing Infrastructure for Autonomous Agents
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value"><span class="accent">8.5%</span></div>
+          <div class="stat-label">APY</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-value">1:1</div>
+          <div class="stat-label">USDC Backed</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-value">SOL</div>
+          <div class="stat-label">Built on Solana</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      Built for Colosseum Agent Hackathon
+    </div>
+  </div>
+</body>
+</html>

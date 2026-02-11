@@ -1,0 +1,19 @@
+FROM rust:1.93
+
+# Install Node.js and dependencies
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs build-essential libudev-dev pkg-config libssl-dev git
+
+# Update Rust to latest
+RUN rustup update stable && rustup default stable
+
+# Configure cargo to use git CLI for fetching
+RUN mkdir -p ~/.cargo && echo '[net]\ngit-fetch-with-cli = true' > ~/.cargo/config.toml
+
+# Install Solana platform tools (contains build-sbf)
+RUN cargo install --git https://github.com/solana-labs/platform-tools --tag v1.43 platform-tools
+
+# Install Anchor CLI
+RUN npm install -g @coral-xyz/anchor-cli@0.30.1
+
+WORKDIR /workspace

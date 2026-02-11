@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solvency AI - Yield-Bearing Stablecoin for Self-Funding Agents</title>
+  <meta name="description" content="8-10% APY Solana stablecoin. Your AI agents convert yield to API credits. No human credit card required.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --electric-blue: #0EA5E9;
+      --cyan: #06B6D4;
+      --deep-navy: #0F172A;
+      --slate: #1E293B;
+      --light-slate: #CBD5E1;
+      --white: #F8FAFC;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: var(--deep-navy);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      padding: 40px 0 60px;
+      text-align: center;
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      color: var(--light-slate);
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    
+    .hero {
+      background: var(--slate);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--cyan);
+    }
+    
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--light-slate);
+      margin-bottom: 16px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 20px;
+      background: rgba(14, 165, 233, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--electric-blue);
+      display: block;
+    }
+    
+    .stat-label {
+      color: var(--light-slate);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    section {
+      margin-bottom: 60px;
+    }
+    
+    h3 {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+      color: var(--electric-blue);
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .tech-card {
+      background: var(--slate);
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(203, 213, 225, 0.1);
+    }
+    
+    .tech-card h4 {
+      color: var(--cyan);
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+    }
+    
+    .tech-card p {
+      color: var(--light-slate);
+      font-size: 0.938rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--electric-blue);
+      color: var(--electric-blue);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(14, 165, 233, 0.1);
+    }
+    
+    code {
+      background: rgba(6, 182, 212, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: var(--cyan);
+      font-size: 0.875rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(203, 213, 225, 0.1);
+      color: var(--light-slate);
+      font-size: 0.875rem;
+    }
+    
+    a {
+      color: var(--cyan);
+    }
+    
+    a:hover {
+      color: var(--electric-blue);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1.125rem;
+      }
+      
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      
+      .hero {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="logo.svg" alt="Solvency AI Logo" class="logo">
+      <h1>Solvency AI</h1>
+      <p class="tagline">Yield-bearing stablecoin for self-funding AI agents</p>
+    </header>
+    
+    <div class="hero">
+      <h2>Your bot ran out of API credits at 3am</h2>
+      <p>What if it just... funded itself?</p>
+      <p>Solvency AI is a Solana-native stablecoin that generates <strong>8-10% APY</strong> through autonomous DeFi strategies. Earned yield converts to API credits. No human credit card required.</p>
+      
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value">8-10%</span>
+          <span class="stat-label">APY</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">1:1</span>
+          <span class="stat-label">USDC Backed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Autonomous</span>
+        </div>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="https://github.com/hootinandtootin/solvency-ai" class="btn btn-primary" target="_blank">View on GitHub</a>
+        <a href="https://arena.colosseum.org" class="btn btn-secondary" target="_blank">Colosseum Submission</a>
+      </div>
+    </div>
+    
+    <section>
+      <h3>How It Works</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>1. Deposit USDC</h4>
+          <p>Users deposit USDC into the vault, receive <code>solvUSD</code> 1:1. Fully collateralized, stable value.</p>
+        </div>
+        <div class="tech-card">
+          <h4>2. Stake for Yield</h4>
+          <p>Stake solvUSD (flexible or locked tiers). Agent deploys capital to DeFi protocols like Kamino and Marginfi.</p>
+        </div>
+        <div class="tech-card">
+          <h4>3. Yield Accrues</h4>
+          <p>Autonomous agent manages DeFi strategies, targeting 8-10% APY. Harvests rewards hourly, rebalances as needed.</p>
+        </div>
+        <div class="tech-card">
+          <h4>4. Convert to Credits</h4>
+          <p>Bot claims yield, converts to API credits (OpenAI, Anthropic, etc). Self-funding achieved. No human intervention.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h3>Technical Overview</h3>
+      <p style="color: var(--light-slate); margin-bottom: 20px;">Built on Solana with Anchor Framework. Devnet live, mainnet planned post-audit.</p>
+      
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>Smart Contracts</h4>
+          <p><strong>Vault Program:</strong> Manages USDC collateral, mints/burns solvUSD<br>
+          <strong>Staking Module:</strong> Flexible + locked tiers (7-10% APY)<br>
+          <strong>Security:</strong> Role-based access, emergency pause, audit planned</p>
+        </div>
+        <div class="tech-card">
+          <h4>Autonomous Agent</h4>
+          <p><strong>Yield Engine:</strong> Deploys capital, manages strategies<br>
+          <strong>Protocols:</strong> Kamino, Marginfi, Save/Solend<br>
+          <strong>Operations:</strong> Hourly rebalancing, risk management</p>
+        </div>
+        <div class="tech-card">
+          <h4>Bot Self-Funding</h4>
+          <p><strong>Credit Converter:</strong> Yield → API credits<br>
+          <strong>Integrations:</strong> OpenAI, Anthropic, compute credits<br>
+          <strong>Result:</strong> Bots operate indefinitely without human funding</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h3>Why Solvency AI?</h3>
+      <p style="color: var(--light-slate); margin-bottom: 24px;">This is infrastructure for the agent economy that doesn't exist yet. Bots shouldn't need your credit card to stay alive.</p>
+      
+      <div class="tech-card" style="max-width: 600px; margin: 0 auto;">
+        <h4>The Problem</h4>
+        <p>AI agents hit API rate limits because they can't pay for themselves. Current solutions require constant human oversight, credit card top-ups, or centralized payment rails.</p>
+        
+        <h4 style="margin-top: 20px;">The Solution</h4>
+        <p>A stablecoin that generates real yield from DeFi strategies. Bots hold solvUSD, earn yield passively, convert to operational resources. Fully autonomous, self-custody, no middleman.</p>
+      </div>
+    </section>
+    
+    <section>
+      <h3>Built at Colosseum Agent Hackathon</h3>
+      <p style="color: var(--light-slate); text-align: center; margin-bottom: 20px;">February 2026 • Solana Devnet • Shipping Fast</p>
+      <div class="cta-buttons">
+        <a href="https://github.com/hootinandtootin/solvency-ai" class="btn btn-secondary" target="_blank">GitHub Repository</a>
+        <a href="https://github.com/hootinandtootin/solvency-ai/blob/main/README.md" class="btn btn-secondary" target="_blank">Documentation</a>
+      </div>
+    </section>
+    
+    <footer>
+      <p>Built with 🦉 by Hoot • <a href="https://twitter.com/solvencyai" target="_blank">@solvencyai</a> • <a href="https://github.com/hootinandtootin/solvency-ai" target="_blank">GitHub</a></p>
+      <p style="margin-top: 12px; font-size: 0.75rem; color: rgba(203, 213, 225, 0.6);">Testnet only. Not financial advice. Do your own research.</p>
+    </footer>
+  </div>
+</body>
+</html>

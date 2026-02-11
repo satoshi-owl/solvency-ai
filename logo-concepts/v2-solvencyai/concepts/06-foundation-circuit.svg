@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Strong foundation with circuit/AI overlay -->
+  <rect x="20" y="60" width="60" height="25" stroke="#000" stroke-width="3" fill="none"/>
+  <circle cx="35" cy="72.5" r="5" stroke="#000" stroke-width="2" fill="none"/>
+  <circle cx="50" cy="72.5" r="5" stroke="#000" stroke-width="2" fill="none"/>
+  <circle cx="65" cy="72.5" r="5" stroke="#000" stroke-width="2" fill="none"/>
+  <line x1="40" y1="72.5" x2="45" y2="72.5" stroke="#000" stroke-width="2"/>
+  <line x1="55" y1="72.5" x2="60" y2="72.5" stroke="#000" stroke-width="2"/>
+  <!-- Intelligence crown -->
+  <path d="M30 60 L30 40 L40 45 L50 35 L60 45 L70 40 L70 60" stroke="#000" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+</svg>

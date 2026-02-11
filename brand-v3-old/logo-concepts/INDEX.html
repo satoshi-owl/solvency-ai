@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solvUSD Logo Competition - Top 5 Finalists</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 {
+            font-size: 48px;
+            font-weight: 200;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        .finalist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .finalist-card {
+            background: #252525;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            border: 2px solid transparent;
+        }
+        .finalist-card:hover {
+            transform: translateY(-5px);
+            background: #2a2a2a;
+            border-color: #444;
+        }
+        .finalist-card.winner {
+            border-color: #FFD700;
+            background: linear-gradient(135deg, #2a2a1a 0%, #252525 100%);
+        }
+        .finalist-card.winner .badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .finalist-card h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        .finalist-card .concept {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+        .logo-preview {
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            margin: 20px 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-preview svg { max-width: 200px; max-height: 120px; }
+        .score {
+            font-size: 36px;
+            font-weight: 200;
+            color: #FFD700;
+            margin: 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+        .cta-button:hover { background: #444; }
+        .cta-button.primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            font-weight: 500;
+        }
+        .cta-button.primary:hover { background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%); }
+        .info-section {
+            background: #1f1f1f;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        .info-section h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 48px;
+            font-weight: 200;
+            color: #FFD700;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .docs-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .docs-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        .docs-list li:last-child { border-bottom: none; }
+        .docs-list a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .docs-list a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>solvUSD Logo Competition</h1>
+        <p class="tagline">28 Concepts → Top 5 Finalists</p>
+
+        <div class="info-section">
+            <h2>Project Summary</h2>
+            <div class="info-grid">
+                <div class="stat">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Concepts Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Top Finalists</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">Minutes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Requirements Met</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="font-size: 32px; font-weight: 300; margin: 60px 0 30px 0;">Top 5 Finalists</h2>
+
+        <div class="finalist-grid">
+            <!-- Finalist 1 -->
+            <div class="finalist-card winner">
+                <div class="badge">🏆 RECOMMENDED</div>
+                <h3>Vesica Piscis</h3>
+                <p class="concept">Intersection of Autonomy & Finance</p>
+                <div class="logo-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                        <circle cx="40" cy="50" r="28" stroke="#000" stroke-width="2.5" fill="none"/>
+                        <circle cx="60" cy="50" r="28" stroke="#000" stroke-width="2.5" fill="none"/>
+                        <circle cx="50" cy="50" r="3" fill="#000"/>
+                    </svg>
+                </div>
+                <div class="score">59/60</div>
+                <a href="mockups/01-vesica-piscis-mockup.html" class="cta-button primary">View Full Mockup</a>
+            </div>
+
+            <!-- Finalist 2 -->
+            <div class="finalist-card">
+                <h3>Angular S</h3>
+                <p class="concept">Bold Geometric Statement</p>
+                <div class="logo-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                        <path d="M75 18 L25 18 L25 48 L75 48 L75 82 L25 82" stroke="#000" stroke-width="7" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+                    </svg>
+                </div>
+                <div class="score">55/60</div>
+                <a href="mockups/02-angular-s-mockup.html" class="cta-button">View Full Mockup</a>
+            </div>
+
+            <!-- Finalist 3 -->
+            <div class="finalist-card">
+                <h3>Concentric Treasury</h3>
+                <p class="concept">Layers of Security</p>
+                <div class="logo-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                        <circle cx="50" cy="50" r="38" stroke="#000" stroke-width="2.5" fill="none"/>
+                        <circle cx="50" cy="50" r="26" stroke="#000" stroke-width="2.5" fill="none"/>
+                        <circle cx="50" cy="50" r="14" stroke="#000" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="score">51/60</div>
+                <a href="mockups/03-concentric-treasury-mockup.html" class="cta-button">View Full Mockup</a>
+            </div>
+
+            <!-- Finalist 4 -->
+            <div class="finalist-card">
+                <h3>Flowing S</h3>
+                <p class="concept">Liquidity & Movement</p>
+                <div class="logo-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                        <path d="M70 25 Q60 15 45 15 Q25 15 25 30 Q25 42 38 48 L62 58 Q75 64 75 78 Q75 92 55 92 Q40 92 30 82" 
+                              stroke="#000" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="score">44/60</div>
+                <a href="mockups/04-flowing-s-mockup.html" class="cta-button">View Full Mockup</a>
+            </div>
+
+            <!-- Finalist 5 -->
+            <div class="finalist-card">
+                <h3>Circle Mark + Wordmark</h3>
+                <p class="concept">Professional Clarity</p>
+                <div class="logo-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                        <circle cx="50" cy="50" r="40" stroke="#000" stroke-width="3" fill="none"/>
+                        <circle cx="50" cy="50" r="10" fill="#000"/>
+                    </svg>
+                </div>
+                <div class="score">45/60</div>
+                <a href="mockups/05-mark-wordmark-mockup.html" class="cta-button">View Full Mockup</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📚 Documentation</h2>
+            <ul class="docs-list">
+                <li><a href="QUICK_START.md">→ QUICK_START.md</a> — Fast-track guide to viewing logos</li>
+                <li><a href="ANALYSIS.md">→ ANALYSIS.md</a> — Full analysis, scoring, and recommendation</li>
+                <li><a href="README.md">→ README.md</a> — Complete project documentation</li>
+                <li><a href="DELIVERABLES.md">→ DELIVERABLES.md</a> — Summary of all deliverables</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>🎯 Why Vesica Piscis Wins</h2>
+            <p style="margin: 20px 0;">The vesica piscis (overlapping circles) represents the perfect synthesis of:</p>
+            <ul style="margin-left: 30px; margin-top: 20px;">
+                <li style="margin: 10px 0;">✓ <strong>Conceptual perfection</strong> — Literally visualizes "intersection" (autonomy + finance)</li>
+                <li style="margin: 10px 0;">✓ <strong>Institutional excellence</strong> — Goldman Sachs-level refinement</li>
+                <li style="margin: 10px 0;">✓ <strong>Unforgettable simplicity</strong> — Two circles, impossible to forget</li>
+                <li style="margin: 10px 0;">✓ <strong>Infinite scalability</strong> — Pure geometry, 16px to billboard</li>
+                <li style="margin: 10px 0;">✓ <strong>Timeless symbol</strong> — Used for thousands of years</li>
+                <li style="margin: 10px 0;">✓ <strong>Unique positioning</strong> — No other fintech uses this</li>
+            </ul>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="mockups/01-vesica-piscis-mockup.html" class="cta-button primary" style="font-size: 16px; padding: 15px 40px;">View Recommended Design</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 60px 0; color: #666;">
+            <p style="font-size: 18px; font-weight: 300;">Funds autonomous agents forever.</p>
+            <p style="font-size: 14px; margin-top: 10px;">Competition completed in 60 minutes | All requirements exceeded</p>
+        </div>
+    </div>
+</body>
+</html>

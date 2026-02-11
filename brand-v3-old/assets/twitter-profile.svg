@@ -1,0 +1,41 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Twitter Profile Picture - 400x400 -->
+  
+  <!-- Dark background circle -->
+  <circle cx="200" cy="200" r="200" fill="#0A1628"/>
+  
+  <!-- Logo mark (centered, scaled appropriately) -->
+  <g transform="translate(56, 56)">
+    <!-- S-curve -->
+    <path d="
+      M 72 44
+      C 72 28.6 84.6 16 100 16
+      L 188 16
+      C 203.4 16 216 28.6 216 44
+      C 216 59.4 203.4 72 188 72
+      L 144 72
+      C 135.2 72 128 79.2 128 88
+      C 128 96.8 135.2 104 144 104
+      L 188 104
+      C 203.4 104 216 116.6 216 132
+      L 216 220
+      C 216 235.4 203.4 248 188 248
+      L 100 248
+      C 84.6 248 72 235.4 72 220
+      C 72 204.6 84.6 192 100 192
+      L 144 192
+      C 152.8 192 160 184.8 160 176
+      C 160 167.2 152.8 160 144 160
+      L 100 160
+      C 84.6 160 72 147.4 72 132
+      L 72 44
+    " stroke="#4A90E2" stroke-width="24" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Accent dots - watchful marks -->
+    <circle cx="176" cy="38" r="7" fill="#C9A959" opacity="0.9"/>
+    <circle cx="112" cy="226" r="7" fill="#C9A959" opacity="0.9"/>
+  </g>
+  
+  <!-- Optional: subtle border (makes it pop on Twitter) -->
+  <circle cx="200" cy="200" r="198" fill="none" stroke="#2D4A6C" stroke-width="2" opacity="0.3"/>
+</svg>

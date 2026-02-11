@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" width="500" height="100">
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
+    </style>
+  </defs>
+  <text x="250" y="60" class="logo-text" font-size="36" text-anchor="middle" fill="#000">SOLVENCY AI</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" width="500" height="100">
+  <!-- S symbol + wordmark -->
+  <path d="M65 25 Q55 15 40 15 Q20 15 20 30 Q20 42 33 48 L57 58 Q70 64 70 78 Q70 92 50 92 Q35 92 25 82" 
+        stroke="#000" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, system-ui, sans-serif; font-weight: 400; letter-spacing: 0.05em; }
+    </style>
+  </defs>
+  <text x="105" y="62" class="logo-text" font-size="40" text-anchor="start" fill="#000">solvUSD</text>
+</svg>

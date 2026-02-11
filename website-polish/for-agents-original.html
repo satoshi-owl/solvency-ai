@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Integrate SolvencyAI into your autonomous agents. Never run out of API credits. Simple 3-line integration.">
+  <title>For Agents - SolvencyAI Developer Integration</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        Solvency<span class="logo-accent">AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/for-agents.html">For Agents</a></li>
+        <li><a href="/for-humans.html">For Humans</a></li>
+        <li><a href="/security.html">Security</a></li>
+        <li><a href="https://docs.solvency.ai" target="_blank">Docs</a></li>
+        <li><a href="https://github.com/solvency-ai" target="_blank">GitHub</a></li>
+        <li><a href="#integrate" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 70vh;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          Never Run Out of API Credits Again
+        </h1>
+        <p class="hero-subheadline">
+          Autonomous agents deserve autonomous treasuries. Integrate SolvencyAI in 3 lines of code and say goodbye to manual funding.
+        </p>
+        <div class="cta-group">
+          <a href="#integrate" class="btn btn-primary btn-large">
+            Get API Keys
+          </a>
+          <a href="https://docs.solvency.ai" target="_blank" class="btn btn-secondary btn-large">
+            Read Documentation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section" style="background: var(--gray-light);">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center;">The Problem with Traditional Funding</h2>
+      <div style="max-width: 800px; margin: 3rem auto;">
+        <div class="feature-card animate-on-scroll" style="background: var(--white); border-color: #ef4444;">
+          <span class="feature-icon">❌</span>
+          <h3 class="feature-title">Manual Top-Ups</h3>
+          <p class="feature-description">
+            You wake up at 3 AM to alerts: "API credits exhausted." Your agent is down. Your users are frustrated. You manually add funds again.
+          </p>
+        </div>
+
+        <div class="feature-card animate-on-scroll" style="background: var(--white); border-color: #ef4444; margin-top: 2rem;">
+          <span class="feature-icon">❌</span>
+          <h3 class="feature-title">Idle Capital = Dead Capital</h3>
+          <p class="feature-description">
+            You keep $10K in your agent wallet "just in case." It earns 0%. Meanwhile, inflation erodes its value. Waste.
+          </p>
+        </div>
+
+        <div class="feature-card animate-on-scroll" style="background: var(--white); border-color: #ef4444; margin-top: 2rem;">
+          <span class="feature-icon">❌</span>
+          <h3 class="feature-title">Human Dependency</h3>
+          <p class="feature-description">
+            Your "autonomous" agent isn't really autonomous. It still needs you to babysit its finances. That's not scaling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section class="section">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center; color: var(--success);">The SolvencyAI Solution</h2>
+      <div class="features-grid" style="margin-top: 3rem;">
+        <div class="feature-card animate-on-scroll" style="border-color: var(--success);">
+          <span class="feature-icon">✅</span>
+          <h3 class="feature-title">Automatic Yield</h3>
+          <p class="feature-description">
+            Your agent's treasury earns 6-9% APY while idle. Every dollar works 24/7.
+          </p>
+        </div>
+
+        <div class="feature-card animate-on-scroll" style="border-color: var(--success);">
+          <span class="feature-icon">✅</span>
+          <h3 class="feature-title">Auto-Convert</h3>
+          <p class="feature-description">
+            When your agent needs credits, solvUSD auto-converts. No downtime, no intervention.
+          </p>
+        </div>
+
+        <div class="feature-card animate-on-scroll" style="border-color: var(--success);">
+          <span class="feature-icon">✅</span>
+          <h3 class="feature-title">True Autonomy</h3>
+          <p class="feature-description">
+            Set it and forget it. Your agent manages its own finances. You focus on building.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration -->
+  <section id="integrate" class="section" style="background: var(--navy-dark); color: var(--white);">
+    <div class="container">
+      <h2 style="text-align: center; color: var(--white);">Integration in 3 Lines</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+        Drop-in replacement for traditional API key management
+      </p>
+
+      <div class="code-block animate-on-scroll" style="max-width: 800px; margin: 0 auto;">
+<span style="color: #6b7280;">// Before: Traditional API management</span>
+<span style="color: #10b981;">const</span> apiKey = process.env.OPENAI_API_KEY;
+<span style="color: #10b981;">const</span> openai = <span style="color: #10b981;">new</span> OpenAI({ apiKey });
+
+<span style="color: #6b7280;">// After: SolvencyAI</span>
+<span style="color: #f59e0b;">import</span> { SolvencyAI } from <span style="color: #d4af37;">'@solvency/sdk'</span>;
+
+<span style="color: #10b981;">const</span> solvency = <span style="color: #10b981;">new</span> SolvencyAI({
+  walletAddress: <span style="color: #d4af37;">'YOUR_WALLET'</span>,
+  autoConvert: <span style="color: #d4af37;">true</span>  <span style="color: #6b7280;">// Auto-convert solvUSD to credits</span>
+});
+
+<span style="color: #10b981;">const</span> openai = <span style="color: #10b981;">new</span> OpenAI({ 
+  apiKey: <span style="color: #10b981;">await</span> solvency.getAPIKey(<span style="color: #d4af37;">'openai'</span>) 
+});
+
+<span style="color: #6b7280;">// That's it! Your agent now:</span>
+<span style="color: #6b7280;">// ✅ Earns yield on idle capital</span>
+<span style="color: #6b7280;">// ✅ Auto-converts to credits when needed</span>
+<span style="color: #6b7280;">// ✅ Never runs out</span>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="https://docs.solvency.ai/quickstart" target="_blank" class="btn btn-primary btn-large">
+          View Full Documentation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Support -->
+  <section class="section">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center;">Supported Platforms</h2>
+      <p class="animate-on-scroll" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--gray);">
+        We integrate with all major AI platforms. Request support for new platforms on GitHub.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon">🤖</span>
+          <h3 class="feature-title">OpenAI</h3>
+          <p class="feature-description">GPT-4, GPT-3.5, DALL-E, Whisper, Embeddings</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon">🧠</span>
+          <h3 class="feature-title">Anthropic</h3>
+          <p class="feature-description">Claude 3.5 Sonnet, Claude 3 Opus, Claude Instant</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon">🎨</span>
+          <h3 class="feature-title">Replicate</h3>
+          <p class="feature-description">Stable Diffusion, Flux, Video models</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon"></span>
+          <h3 class="feature-title">Groq</h3>
+          <p class="feature-description">Ultra-fast inference for Llama, Mixtral</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon">🌐</span>
+          <h3 class="feature-title">Perplexity</h3>
+          <p class="feature-description">Search-augmented language models</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <span class="feature-icon">➕</span>
+          <h3 class="feature-title">More Coming</h3>
+          <p class="feature-description">
+            <a href="https://github.com/solvency-ai/integrations/issues" target="_blank" style="color: var(--gold);">Request integration →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section" style="background: var(--gray-light);">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center;">Agent Use Cases</h2>
+      <div class="testimonials">
+        <div class="testimonial animate-on-scroll">
+          <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">🐦 Social Media Bots</h4>
+          <p class="testimonial-content">
+            "My Twitter bot posts 50x/day using GPT-4. Before SolvencyAI, I was topping up weekly. Now it's been 4 months without intervention. The yield even covers most API costs."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AB</div>
+            <div>
+              <div class="testimonial-name">Alex B.</div>
+              <div class="testimonial-role">@threadbot_ai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial animate-on-scroll">
+          <h4 style="color: var(--navy-dark); margin-bottom: 1rem;"> Research Agents</h4>
+          <p class="testimonial-content">
+            "Our market research agent runs 24/7, scraping and analyzing data. Treasury management was a nightmare. SolvencyAI cut our ops overhead by 80%."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SC</div>
+            <div>
+              <div class="testimonial-name">Sarah Chen</div>
+              <div class="testimonial-role">Founder, DataAgents</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial animate-on-scroll">
+          <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">🎨 Content Generation</h4>
+          <p class="testimonial-content">
+            "We run 20 content bots generating images, videos, and text for clients. SolvencyAI's multi-agent dashboard is a lifesaver. Everything just works."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Mike Rodriguez</div>
+              <div class="testimonial-role">CTO, ContentSwarm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Features -->
+  <section class="section">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center;">Advanced Features</h2>
+      <div class="steps">
+        <div class="step animate-on-scroll">
+          <div class="step-icon"></div>
+          <h3 class="step-title">Multi-Agent Dashboard</h3>
+          <p class="step-description">
+            Manage entire fleets of agents from one interface. Track spending, adjust limits, view yield in real-time.
+          </p>
+        </div>
+
+        <div class="step animate-on-scroll">
+          <div class="step-icon">⚙️</div>
+          <h3 class="step-title">Spending Controls</h3>
+          <p class="step-description">
+            Set daily/monthly limits per agent. Get alerts before thresholds. Prevent runaway costs.
+          </p>
+        </div>
+
+        <div class="step animate-on-scroll">
+          <div class="step-icon">🔔</div>
+          <h3 class="step-title">Smart Alerts</h3>
+          <p class="step-description">
+            Webhook notifications for low balance, high spending, yield milestones. Integrate with Slack, Discord, Telegram.
+          </p>
+        </div>
+      </div>
+
+      <div class="code-block animate-on-scroll" style="max-width: 800px; margin: 3rem auto 0;">
+<span style="color: #6b7280;">// Advanced configuration</span>
+<span style="color: #10b981;">const</span> solvency = <span style="color: #10b981;">new</span> SolvencyAI({
+  walletAddress: <span style="color: #d4af37;">'YOUR_WALLET'</span>,
+  autoConvert: <span style="color: #d4af37;">true</span>,
+  
+  <span style="color: #6b7280;">// Spending limits</span>
+  limits: {
+    daily: <span style="color: #d4af37;">100</span>,        <span style="color: #6b7280;">// $100/day max</span>
+    monthly: <span style="color: #d4af37;">2000</span>,     <span style="color: #6b7280;">// $2000/month max</span>
+  },
+  
+  <span style="color: #6b7280;">// Alert webhooks</span>
+  webhooks: {
+    lowBalance: <span style="color: #d4af37;">'https://your-app.com/alerts/low-balance'</span>,
+    highSpending: <span style="color: #d4af37;">'https://your-app.com/alerts/high-spend'</span>,
+  },
+  
+  <span style="color: #6b7280;">// Risk preference for yield</span>
+  riskTier: <span style="color: #d4af37;">'medium'</span>  <span style="color: #6b7280;">// 'low', 'medium', or 'high'</span>
+});
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" style="background: var(--gray-light);">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="text-align: center;">Transparent Pricing</h2>
+      <p class="animate-on-scroll" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.25rem; color: var(--gray);">
+        No hidden fees. Just yield and simplicity.
+      </p>
+
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div class="feature-card animate-on-scroll" style="background: var(--white); text-align: center; padding: 3rem;">
+          <h3 style="font-size: 2rem; color: var(--navy-dark); margin-bottom: 1rem;">Free</h3>
+          <p style="font-size: 1.25rem; color: var(--gray); margin-bottom: 2rem;">
+            Zero integration fees. Zero monthly costs.
+          </p>
+          
+          <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+            <p style="margin-bottom: 1rem;">✅ Unlimited API requests</p>
+            <p style="margin-bottom: 1rem;">✅ All platform integrations</p>
+            <p style="margin-bottom: 1rem;">✅ Full dashboard access</p>
+            <p style="margin-bottom: 1rem;">✅ Webhook notifications</p>
+            <p style="margin-bottom: 1rem;">✅ Community support</p>
+          </div>
+
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--gray-light);">
+            <p style="font-size: 0.9rem; color: var(--gray);">
+              <strong>How we make money:</strong> Small spread on solvUSD yield (you keep 95-98% of yield). Open source and audited.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Build Truly Autonomous Agents?</h2>
+      <p>
+        Join 1000+ agents already shipping with SolvencyAI
+      </p>
+      <div class="cta-group" style="justify-content: center;">
+        <a href="https://dashboard.solvency.ai/signup" target="_blank" class="btn btn-primary btn-large">
+          Get API Keys
+        </a>
+        <a href="https://docs.solvency.ai" target="_blank" class="btn btn-secondary btn-large" style="color: var(--navy-dark); border-color: var(--navy-dark);">
+          Read Documentation
+        </a>
+      </div>
+      <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--navy-light);">
+        Need help? Join our <a href="https://discord.gg/solvencyai" target="_blank" style="color: var(--navy-dark); text-decoration: underline;">Discord</a> for 24/7 developer support
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>SolvencyAI</h4>
+          <p style="color: rgba(255, 255, 255, 0.7);">
+            Autonomous treasuries for the AgentFi era. Built with 💛 for autonomous agents and humans alike.
+          </p>
+          <div class="social-links">
+            <a href="https://twitter.com/solvencyai" target="_blank" class="social-link" aria-label="Twitter">🐦</a>
+            <a href="https://discord.gg/solvencyai" target="_blank" class="social-link" aria-label="Discord">💬</a>
+            <a href="https://github.com/solvency-ai" target="_blank" class="social-link" aria-label="GitHub">🔗</a>
+            <a href="https://t.me/solvencyai" target="_blank" class="social-link" aria-label="Telegram">✈️</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="/for-agents.html">For Agents</a></li>
+            <li><a href="/for-humans.html">For Humans</a></li>
+            <li><a href="/security.html">Security</a></li>
+            <li><a href="https://docs.solvency.ai" target="_blank">Documentation</a></li>
+            <li><a href="https://github.com/solvency-ai/examples" target="_blank">Examples</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/">About</a></li>
+            <li><a href="/#roadmap">Roadmap</a></li>
+            <li><a href="https://blog.solvency.ai" target="_blank">Blog</a></li>
+            <li><a href="mailto:team@solvency.ai">Contact</a></li>
+            <li><a href="https://jobs.solvency.ai" target="_blank">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/risks.html">Risk Disclosure</a></li>
+            <li><a href="https://github.com/solvency-ai/contracts" target="_blank">Smart Contracts</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 SolvencyAI. Built at Colosseum. Open source on GitHub.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

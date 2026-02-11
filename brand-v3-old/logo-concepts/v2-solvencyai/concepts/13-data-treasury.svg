@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Data/AI managing treasury layers -->
+  <rect x="20" y="55" width="60" height="30" stroke="#000" stroke-width="2.5" fill="none"/>
+  <line x1="30" y1="70" x2="50" y2="70" stroke="#000" stroke-width="2"/>
+  <line x1="30" y1="75" x2="70" y2="75" stroke="#000" stroke-width="2"/>
+  <!-- AI layer on top -->
+  <circle cx="35" cy="40" r="5" fill="#000"/>
+  <circle cx="50" cy="30" r="5" fill="#000"/>
+  <circle cx="65" cy="40" r="5" fill="#000"/>
+  <line x1="35" y1="40" x2="50" y2="30" stroke="#000" stroke-width="2"/>
+  <line x1="50" y1="30" x2="65" y2="40" stroke="#000" stroke-width="2"/>
+  <line x1="50" y1="35" x2="50" y2="55" stroke="#000" stroke-width="2"/>
+</svg>
