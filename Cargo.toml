@@ -1,0 +1,6 @@
+[workspace]
+members = ["programs/vault"]
+resolver = "2"
+
+[workspace.dependencies]
+blake3 = "=1.5.4"
