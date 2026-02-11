@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  SOLANA_VERSION: '1.18.17'
+  SOLANA_VERSION: 'stable'
   ANCHOR_VERSION: '0.30.1'
   RUST_VERSION: 'stable'
 
@@ -38,8 +38,15 @@ jobs:
 
       - name: Install Solana CLI
         run: |
-          sh -c "$(curl -sSfL https://release.solana.com/v${{ env.SOLANA_VERSION }}/install)"
-          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+          # Retry logic for Solana installation
+          for i in 1 2 3; do
+            if sh -c "$(curl -sSfL https://release.solana.com/stable/install)"; then
+              echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+              break
+            fi
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
           
       - name: Verify Solana Installation
         run: |
