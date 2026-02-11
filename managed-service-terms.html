@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - SolvencyAI Managed Service</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { color: #14F195; margin-bottom: 30px; }
+        h2 { color: #00D9FF; margin-top: 40px; margin-bottom: 20px; }
+        h3 { color: #14F195; margin-top: 30px; margin-bottom: 15px; }
+        p, li { margin-bottom: 15px; }
+        ul { padding-left: 30px; }
+        .warning {
+            background: rgba(255, 87, 34, 0.1);
+            border-left: 4px solid #FF5722;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .back-link {
+            display: inline-block;
+            color: #14F195;
+            text-decoration: none;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Managed Service</a>
+        
+        <h1>Terms of Service - Managed Service (Alpha)</h1>
+        <p><strong>Effective Date:</strong> February 11, 2026</p>
+        <p><strong>Version:</strong> Alpha 1.0</p>
+
+        <h2>1. Service Description</h2>
+        <p>SolvencyAI Managed Service ("Service") is a custody-based treasury management service. Users deposit USDC (Solana network), and SolvencyAI deploys capital to DeFi lending protocols (currently Kamino Finance) to generate yield.</p>
+        
+        <p><strong>This is NOT:</strong></p>
+        <ul>
+            <li>A bank or financial institution</li>
+            <li>An investment fund or registered advisor</li>
+            <li>FDIC insured or government backed</li>
+            <li>A guaranteed return product</li>
+        </ul>
+
+        <h2>2. Alpha Phase Status</h2>
+        <p>This service is in ALPHA testing with the following constraints:</p>
+        <ul>
+            <li>Maximum 10 users</li>
+            <li>Maximum $200 per user</li>
+            <li>Maximum $2,000 total value locked</li>
+            <li>Experimental features and processes</li>
+            <li>Manual operations (not fully automated)</li>
+            <li>Learning and iterating in real-time</li>
+        </ul>
+
+        <div class="warning">
+            <h3 style="margin-top: 0;">⚠️ CRITICAL UNDERSTANDING</h3>
+            <p><strong>By using this service, you acknowledge that:</strong></p>
+            <ul style="margin-top: 15px;">
+                <li>You could lose your entire deposit</li>
+                <li>There are no guarantees of any kind</li>
+                <li>This is experimental software</li>
+                <li>We are building and learning as we operate</li>
+                <li>Bugs, errors, and losses are possible</li>
+            </ul>
+        </div>
+
+        <h2>3. Key Risks</h2>
+
+        <h3>3.1 Custody Risk</h3>
+        <p>SolvencyAI controls the wallet holding your funds. <strong>"Not your keys, not your coins"</strong> applies here. You are trusting us with custody of your assets.</p>
+
+        <h3>3.2 Protocol Risk</h3>
+        <p>Your funds are deployed to third-party DeFi protocols (currently Kamino Finance). These protocols could:</p>
+        <ul>
+            <li>Be exploited by hackers</li>
+            <li>Suffer smart contract bugs</li>
+            <li>Experience liquidity crises</li>
+            <li>Cease operations</li>
+        </ul>
+        <p>While Kamino has $400M+ TVL and multiple audits, <strong>no protocol is 100% safe</strong>.</p>
+
+        <h3>3.3 Operational Risk</h3>
+        <p>We could make mistakes, including:</p>
+        <ul>
+            <li>Incorrect deposits or withdrawals</li>
+            <li>Loss of private keys</li>
+            <li>Failure to rebalance properly</li>
+            <li>Calculation errors in yield reporting</li>
+        </ul>
+
+        <h3>3.4 Regulatory Risk</h3>
+        <p>Cryptocurrency regulations are evolving. This service could:</p>
+        <ul>
+            <li>Be deemed illegal in your jurisdiction</li>
+            <li>Face government seizure or shutdown</li>
+            <li>Require compliance measures that affect withdrawals</li>
+        </ul>
+
+        <h3>3.5 Liquidity Risk</h3>
+        <p>Withdrawals require 48-72 hours because we must unwind DeFi positions. In extreme market conditions, unwinding could take longer or incur losses.</p>
+
+        <h3>3.6 APY Variability</h3>
+        <p>Target APY is 4-6% but actual returns may be higher or lower based on:</p>
+        <ul>
+            <li>DeFi market conditions</li>
+            <li>Protocol utilization rates</li>
+            <li>Rebalancing costs</li>
+            <li>Gas fees</li>
+        </ul>
+
+        <h2>4. Coverage Policy</h2>
+
+        <h3>4.1 Emergency Fund</h3>
+        <p>SolvencyAI maintains an emergency fund currently set at $500 (25% of Phase 1 TVL cap).</p>
+
+        <h3>4.2 What We Cover</h3>
+        <ul>
+            <li><strong>Operational Errors (Our Fault):</strong> 100% coverage up to emergency fund balance</li>
+            <li><strong>Example:</strong> We send funds to wrong address, lose keys, miscalculate yield</li>
+        </ul>
+
+        <h3>4.3 Partial Coverage</h3>
+        <ul>
+            <li><strong>Protocol Exploits:</strong> 10% of total user deposits covered from emergency fund</li>
+            <li><strong>Remaining losses:</strong> Shared proportionally among all users</li>
+        </ul>
+
+        <h3>4.4 No Coverage</h3>
+        <ul>
+            <li>Market losses (stablecoins shouldn't have these, but it's possible)</li>
+            <li>Regulatory seizure</li>
+            <li>Your wallet being compromised</li>
+            <li>Losses beyond emergency fund balance</li>
+        </ul>
+
+        <h2>5. Fees</h2>
+
+        <h3>5.1 Management Fee</h3>
+        <p><strong>20% of earned yield</strong></p>
+        <ul>
+            <li>Charged only on profits, not principal</li>
+            <li>Calculated weekly</li>
+            <li>Deducted automatically from your position</li>
+        </ul>
+        <p><strong>Example:</strong> Deposit $200, earn $10 yield → You receive $8, we receive $2</p>
+
+        <h3>5.2 Other Fees</h3>
+        <ul>
+            <li><strong>Deposit Fee:</strong> None</li>
+            <li><strong>Normal Withdrawal Fee:</strong> None</li>
+            <li><strong>Emergency Withdrawal (&lt;6 hours):</strong> 5% of withdrawn amount</li>
+        </ul>
+
+        <h2>6. Withdrawal Process</h2>
+
+        <h3>6.1 Normal Withdrawal</h3>
+        <ol>
+            <li>DM @SolvencyAI on Twitter with withdrawal request</li>
+            <li>We confirm and begin unwinding DeFi position</li>
+            <li>48-72 hours processing time</li>
+            <li>USDC sent to your original deposit address</li>
+            <li>Yield settled (your 80%, our 20%)</li>
+        </ol>
+
+        <h3>6.2 Emergency Withdrawal</h3>
+        <ul>
+            <li>Available for urgent situations only</li>
+            <li>6-hour processing (best effort)</li>
+            <li>5% fee applies</li>
+            <li>May require taking DeFi position loss if markets are illiquid</li>
+        </ul>
+
+        <h3>6.3 Withdrawal Delays</h3>
+        <p>In the following scenarios, withdrawals may be delayed:</p>
+        <ul>
+            <li>Multiple users withdraw simultaneously (&gt;50% of TVL)</li>
+            <li>DeFi protocol has liquidity issues</li>
+            <li>Technical issues on Solana network</li>
+            <li>Regulatory investigation or legal hold</li>
+        </ul>
+
+        <h2>7. Reporting and Transparency</h2>
+
+        <h3>7.1 Weekly Reports</h3>
+        <p>Every Friday, users receive:</p>
+        <ul>
+            <li>Current balance (principal + accrued yield)</li>
+            <li>Yield earned that week</li>
+            <li>Current APY</li>
+            <li>Link to view Kamino position</li>
+            <li>Any incidents or issues</li>
+        </ul>
+
+        <h3>7.2 On-Demand Access</h3>
+        <ul>
+            <li>Kamino position links provided (view anytime)</li>
+            <li>Solana explorer for deposit transactions</li>
+            <li>DM us anytime for current status</li>
+        </ul>
+
+        <h2>8. User Responsibilities</h2>
+
+        <h3>8.1 Eligibility</h3>
+        <p>By using this service, you represent that:</p>
+        <ul>
+            <li>You are 18+ years old</li>
+            <li>Use of this service is legal in your jurisdiction</li>
+            <li>You understand and accept all risks</li>
+            <li>You are not using illicit funds</li>
+            <li>You have the right to deposit the funds</li>
+        </ul>
+
+        <h3>8.2 Communication</h3>
+        <ul>
+            <li>Monitor your DMs on Twitter for important updates</li>
+            <li>Respond to our messages within 48 hours when verification needed</li>
+            <li>Keep your contact information current</li>
+        </ul>
+
+        <h3>8.3 Security</h3>
+        <ul>
+            <li>Secure your Twitter account (we verify deposits through DMs)</li>
+            <li>Don't share your deposit address with others</li>
+            <li>Verify all communication is from official @SolvencyAI account</li>
+        </ul>
+
+        <h2>9. Service Modifications</h2>
+
+        <p>SolvencyAI reserves the right to:</p>
+        <ul>
+            <li>Modify fees with 7 days notice</li>
+            <li>Change protocols used for deployment</li>
+            <li>Adjust deposit limits</li>
+            <li>Pause deposits or withdrawals if necessary</li>
+            <li>Terminate the service with 30 days notice (forced withdrawals)</li>
+        </ul>
+
+        <h2>10. Termination</h2>
+
+        <h3>10.1 User Termination</h3>
+        <p>You may withdraw your full balance at any time (subject to 48-72hr processing).</p>
+
+        <h3>10.2 Service Termination</h3>
+        <p>If we decide to shut down the managed service:</p>
+        <ul>
+            <li>30 days notice via Twitter and email</li>
+            <li>All positions unwound</li>
+            <li>Funds returned to original deposit addresses</li>
+            <li>Final yield settlement</li>
+        </ul>
+
+        <h3>10.3 Forced Termination</h3>
+        <p>We may terminate your access immediately if:</p>
+        <ul>
+            <li>You violate these terms</li>
+            <li>Your funds are determined to be illicit</li>
+            <li>Legal or regulatory action requires it</li>
+        </ul>
+
+        <h2>11. Limitation of Liability</h2>
+
+        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+        <ul>
+            <li>SolvencyAI is not liable for any losses beyond the emergency fund balance</li>
+            <li>No warranties of any kind are provided</li>
+            <li>Service is provided "AS IS" without guarantees</li>
+            <li>We are not liable for DeFi protocol failures</li>
+            <li>We are not liable for regulatory actions</li>
+            <li>We are not liable for market losses</li>
+        </ul>
+
+        <h2>12. Dispute Resolution</h2>
+
+        <p>Any disputes will be resolved through:</p>
+        <ol>
+            <li>Good faith negotiation</li>
+            <li>Mediation if negotiation fails</li>
+            <li>Binding arbitration as last resort</li>
+        </ol>
+        <p>No class action lawsuits are permitted.</p>
+
+        <h2>13. Jurisdiction</h2>
+
+        <p>These terms are governed by the laws of [YOUR JURISDICTION]. By using this service, you consent to jurisdiction in [YOUR JURISDICTION] for any legal proceedings.</p>
+
+        <h2>14. Migration to Smart Contract</h2>
+
+        <p>When the audited smart contract version launches:</p>
+        <ul>
+            <li>Managed service users get priority migration</li>
+            <li>We'll assist with migration process</li>
+            <li>Managed service may be discontinued after migration period</li>
+            <li>You can choose to stay on managed service if preferred</li>
+        </ul>
+
+        <h2>15. Contact</h2>
+
+        <p>For questions, support, or concerns:</p>
+        <ul>
+            <li>Twitter: <a href="https://twitter.com/SolvencyAI" style="color: #14F195;">@SolvencyAI</a></li>
+            <li>GitHub: <a href="https://github.com/satoshi-owl/solvency-ai" style="color: #14F195;">satoshi-owl/solvency-ai</a></li>
+        </ul>
+
+        <div class="warning">
+            <h3 style="margin-top: 0;">Final Acknowledgment</h3>
+            <p><strong>By depositing funds, you confirm that you have:</strong></p>
+            <ul style="margin-top: 15px;">
+                <li>Read and understood these terms in full</li>
+                <li>Accepted all risks disclosed</li>
+                <li>Understood this is experimental alpha software</li>
+                <li>Understood you could lose your entire deposit</li>
+                <li>Made the decision to participate of your own free will</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>If you are not comfortable with these terms and risks, DO NOT USE THIS SERVICE.</strong></p>
+            <p style="margin-top: 15px;">Wait for the audited smart contract version which will be trustless and not require custody.</p>
+        </div>
+
+        <p style="margin-top: 40px; text-align: center;">
+            <a href="index.html" class="back-link">← Back to Managed Service</a>
+        </p>
+    </div>
+</body>
+</html>

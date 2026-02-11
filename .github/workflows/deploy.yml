@@ -86,6 +86,11 @@ jobs:
             echo "Balance sufficient: $BALANCE SOL"
           fi
 
+      - name: Regenerate Cargo.lock
+        run: |
+          rm -f Cargo.lock
+          cargo generate-lockfile
+          
       - name: Build Anchor Program
         run: |
           anchor build
