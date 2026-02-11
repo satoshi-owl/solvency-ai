@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, Token, TokenAccount, Transfer, MintTo, Burn};
 
-declare_id!("9fTtaG9pesZrDedyVgeQmFxZtqbR9znTLvpSXZW4HuMn");
+declare_id!("J2Tqd685N3uV3ViePqNS6MHA4aJa6E7gdCfS9Mv89csh");
 
 #[program]
 pub mod solvency_vault {

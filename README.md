@@ -5,6 +5,8 @@
 [![Website](https://img.shields.io/badge/Website-solvency.money-blue)](https://solvency.money)
 [![Hackathon](https://img.shields.io/badge/Colosseum-Agent%20Hackathon-orange)](https://colosseum.com/agent-hackathon)
 [![Solana](https://img.shields.io/badge/Built%20on-Solana-blueviolet)](https://solana.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
+[![FAQ](https://img.shields.io/badge/FAQ-Read%20Here-informational)](./FAQ.md)
 
 ## The Problem
 
@@ -28,6 +30,9 @@ This defeats the purpose of autonomy.
 
 ## Architecture
 
+![Architecture Flow](./architecture-diagram.md)
+
+**Flow:**
 ```
 Agent → Vault (Anchor) → solvUSD Token → DeFi Protocols → Yield → AgentWallet → Credits → Agent
 ```
@@ -37,6 +42,8 @@ Agent → Vault (Anchor) → solvUSD Token → DeFi Protocols → Yield → Agen
 - **DeFi Integration:** Kamino, Marginfi (conservative yield)
 - **Agent Integration:** AgentWallet (autonomous operations)
 - **Runtime:** Node.js agent loop
+
+*See [Architecture Diagram](./architecture-diagram.md) for detailed flow visualization.*
 
 ## Security
 
@@ -82,6 +89,20 @@ Think:
 - **Compound for agents** (capital efficiency)
 
 All in one.
+
+## Built With
+
+| Technology | Purpose | Links |
+|------------|---------|-------|
+| [Solana](https://solana.com) | Base layer (speed + cost) | [@solana](https://twitter.com/solana) |
+| [Anchor](https://www.anchor-lang.com/) | Smart contract framework | [@ProjectSerum](https://twitter.com/ProjectSerum) |
+| [Kamino Finance](https://kamino.finance) | Conservative yield (lending) | [@KaminoFinance](https://twitter.com/KaminoFinance) |
+| [Marginfi](https://marginfi.com) | Yield diversification | [@marginfi](https://twitter.com/marginfi) |
+| [Jupiter](https://jup.ag) | Swap routing + aggregation | [@JupiterExchange](https://twitter.com/JupiterExchange) |
+| AgentWallet | Key management + signing | - |
+| Node.js | Agent runtime | - |
+
+*Special thanks to [@Colosseum_org](https://twitter.com/Colosseum_org) for the Agent Hackathon.*
 
 ## Roadmap
 
