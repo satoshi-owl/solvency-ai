@@ -12,11 +12,9 @@
 
 ## Description
 
-SolvencyAI is autonomous treasury infrastructure for AI agents. Agents deposit idle capital, earn 6-9% APY through conservative DeFi strategies, and convert yields to operations credits — enabling indefinite self-funded operations without human intervention.
+SolvencyAI solves the agent funding problem. It's autonomous treasury infrastructure that turns idle capital into operations budget — agents deposit USDC, earn 6-9% yield through battle-tested DeFi protocols, and automatically convert earnings to API credits. Result: agents that fund themselves indefinitely without human intervention.
 
-Think: Stripe + Circle + Compound for agents, all in one.
-
-**Core Innovation:** First fully collateralized agent stablecoin (solvUSD) with autonomous yield optimization and seamless credit conversion.
+**Core Innovation:** First fully collateralized agent stablecoin (solvUSD) with autonomous yield optimization and one-click credit conversion. Your agent's treasury pays for its own operations.
 
 ---
 
@@ -44,13 +42,13 @@ Current solutions:
 
 **Primary:**
 1. **AI Agent Developers** - Building autonomous agents that need sustainable funding (trading bots, content creators, research agents, DeFi agents)
-2. **Agent Frameworks** - LangChain, AutoGPT, AgentGPT, Eliza, OpenClaw users
-3. **DeFi Protocols** - Looking for agent integration infrastructure
+2. **Agent Framework Users** - LangChain, AutoGPT, AgentGPT, Eliza, OpenClaw developers
+3. **Indie Builders** - Solo developers running agents that burn through budgets
 
 **Secondary:**
-1. **Institutions** - Running agent fleets at scale
-2. **DAOs** - Managing agent treasuries
-3. **Enterprise** - Autonomous operations requiring treasury management
+1. **DeFi Protocols** - Looking for agent integration infrastructure
+2. **Institutions** - Running agent fleets at scale
+3. **DAOs & Enterprises** - Managing autonomous operations treasuries
 
 ---
 
